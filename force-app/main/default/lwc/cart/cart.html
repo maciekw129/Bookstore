@@ -1,0 +1,33 @@
+<template>
+    <div class="table__container">
+        <table>
+            <tr class="table__row">
+                <td class="table__data">
+                    <h2 class="table__header">Quantity</h2>
+                </td>
+                <td class="table__data">
+                    <h2 class="table__header">Author</h2>
+                </td>
+                <td class="table__data">
+                    <h2 class="table__header">Title</h2>
+                </td>
+                <td class="table__data">
+                    <h2 class="table__header">ISBN</h2>
+                </td>
+            </tr>
+            <template for:each={cartItems} for:item="item" for:index="index">
+                <tr key={item.Id} class="table__row">
+                    <td class="table__data">
+                        <button class="table__quantity" value={index} onclick={handleAddClick}>+</button>
+                        <p>{item.Quantity__c}</p>
+                        <button class="table__quantity" value={index} onclick={handleSubstractClick}>-</button>
+                    </td>
+                    <td class="table__data">{item.Book__r.Author__c}</td>
+                    <td class="table__data">{item.Book__r.Title__c}</td>
+                    <td class="table__data">{item.Book__r.ISBN__c}</td>
+                </tr>
+            </template>
+        </table>
+        <button class="table__button" onclick={handleComplete}>Go to check out</button>  
+    </div>
+</template>

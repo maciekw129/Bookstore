@@ -1,0 +1,6 @@
+.home {
+    max-width: calc(100vw - 34px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

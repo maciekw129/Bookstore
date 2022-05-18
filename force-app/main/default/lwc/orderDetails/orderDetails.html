@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Order details" icon-name="standard:orders">
+        <lightning-tabset variant="standard" active-tab-value="one">
+            <lightning-tab label="Order " value="one">
+                <div class="space">
+                    <lightning-record-view-form
+                        object-api-name={objectApiName}
+                        record-id={recordId}
+                    >
+                        <lightning-output-field field-name={nameField}> </lightning-output-field>
+                        <lightning-output-field field-name={dateField}> </lightning-output-field>
+                        <lightning-output-field field-name={statusField}> </lightning-output-field>
+                        <lightning-output-field field-name={createdByField}> </lightning-output-field>
+                    </lightning-record-view-form>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Items ordered" value="two" onactive={handleOrderedItemsActive}>
+                <div class="space">
+                    <lightning-datatable
+                        key-field="id"
+                        data={bookList}
+                        hide-checkbox-column
+                        columns={columns}>
+                    </lightning-datatable>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Shipping address" value="three">
+                <div class="space">
+                    <lightning-record-view-form
+                        object-api-name={objectApiName}
+                        record-id={recordId}
+                    >
+                        <lightning-output-field field-name={cityField}></lightning-output-field>
+                        <lightning-output-field field-name={postalCodeField}></lightning-output-field>
+                        <lightning-output-field field-name={streetField}></lightning-output-field>
+                        <lightning-output-field field-name={apartmentField}></lightning-output-field>
+                    </lightning-record-view-form>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>

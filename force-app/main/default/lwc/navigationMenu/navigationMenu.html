@@ -1,0 +1,18 @@
+<template>
+        <nav role="navigation" class="navigation">
+            <div class="navigation__header">
+                <img class="navigation__icon" src="https://aceagency6-dev-ed--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0687Q000000fN5h&operationContext=DELIVERY&contentId=05T7Q000007dXxj&page=0&d=/a/7Q000000PDLv/1SLlq2o5TpCU8_I8pgKoDB3jQ.yt9_E51Xl_JAX041E&oid=00D7Q000006G1k6&dpt=null&viewId=" alt="logo"/>
+                <h1 class="navigation__title">Bookstore.</h1>
+            </div>
+           <ul class="navigation__items">
+               <template for:each={menuItems} for:item="item">
+                   <li key={item.id} class="navigation__item">
+                       <c-navigation-menu-item item={item}></c-navigation-menu-item>
+                   </li>
+               </template>
+               <template if:false={isGuest}>
+                    <a class="navigation__href" href={logoutLink}><p class="navigation__item">Logout</p></a>
+                </template>
+           </ul>
+       </nav>
+</template>

@@ -1,0 +1,55 @@
+.card {
+    position: relative;
+    display: flex;
+    height: 200px;
+    width: 100%;
+    min-width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 0.5rem lightgray;
+    transition: box-shadow 0.2s linear;
+}
+
+.card:hover {
+    box-shadow: none;
+    transition: box-shadow 0.2s linear;
+    cursor: pointer;
+}
+
+.card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.card_content-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card__author {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.card__title {
+    font-weight: bold;
+}
+
+.card__genre {
+    font-size: 0.9rem;
+}
+
+.card__icon {
+    transition: box-shadow 0.2s linear;
+    padding: 0.5rem;
+}
+
+.card__icon:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 0.5rem lightgray;
+    transition: box-shadow 0.2s linear;
+}

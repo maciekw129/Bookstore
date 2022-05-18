@@ -1,0 +1,8 @@
+.books_grid {
+    display: grid;
+    padding: 1rem;
+    gap: 2rem 2rem;
+    width: 100%;
+    grid-template: auto / 1fr 1fr 1fr;
+    justify-content: center;
+}

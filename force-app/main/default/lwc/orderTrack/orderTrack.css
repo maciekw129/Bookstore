@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    border: 2px solid lightgray;
+    position: relative;
+    border-left: 0;
+    border-right: 0;
+    width: 500px;
+    height: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.line::after {
+    content: '';
+    width: 50%;
+    height: 0px;
+    border: 2px solid transparent;
+    position: absolute;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.label {
+    transform: translateY(2rem);
+    white-space: nowrap;
+}
+
+.realized_dot {
+    background-color: lightgreen;
+}
+
+.half_realized_track::after {
+    border-color: lightgreen;
+}
+
+.realized_track {
+    border-color: lightgreen;
+}
+
+.red_line {
+    border-color: red;
+}
+
+.red_dot {
+    background-color: red;
+}

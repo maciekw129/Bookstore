@@ -1,0 +1,54 @@
+<template>
+    <template if:false={isSuccess}>
+        <div class="address">
+            <h2 class="address__header">Enter your shipping address:</h2>
+            <form class="address__form" onsubmit={handleSubmit}>
+                <input
+                    class="address__input"
+                    title="City"
+                    name="city"
+                    placeholder="city"
+                    value={address.city}
+                    onchange={handleChange}
+                    type="text"
+                />
+                <input
+                    class="address__input"
+                    title="Postal Code"
+                    name="postalCode"
+                    placeholder="postal code"
+                    value={address.postalCode}
+                    onchange={handleChange}
+                    type="text"
+                />
+                <input
+                    class="address__input"
+                    title="Street"
+                    name="street"
+                    placeholder="street"
+                    value={address.street}
+                    onchange={handleChange}
+                    type="text"
+                />
+                <input
+                    class="address__input"
+                    title="Apartment"
+                    name="apartment"
+                    placeholder="apartment"
+                    value={address.apartment}
+                    onchange={handleChange}
+                    type="text"
+                />
+                <button
+                    class="address__button"
+                    type="submit" 
+                >Create order</button>
+            </form>
+        </div>
+    </template>
+    <template if:true={isSuccess}>
+        <div class="success">
+            <h2 class="success__header">You managed to place an order!</h2>
+        </div>
+    </template>
+</template>

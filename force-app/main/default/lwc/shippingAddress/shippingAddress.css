@@ -1,0 +1,50 @@
+.address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.address__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.address__input {
+    background: none;
+    border: 1px solid #446083;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 0.75rem 0;
+}
+
+.address__button {
+    margin-top: 2rem;
+    background-color: transparent;
+    border: 1.5px solid #F3BC5A;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: background-color 0.2s linear;
+}
+
+.address__button:hover {
+    cursor: pointer;
+    background-color: #F3BC5A;
+    transition: background-color 0.2s linear;
+}
+
+.success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.success__header {
+    color: green;
+}

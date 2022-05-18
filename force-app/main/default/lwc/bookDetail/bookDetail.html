@@ -1,0 +1,29 @@
+<template>
+    <div class="details">
+        <div class="book__container">
+            <div class="book__image-wrapper">
+                <img class="book__image" src={book.Cover__c} alt="book cover" />
+            </div>
+            <div class="book__content-wrapper">
+                <div class="book__content">
+                    <h2 class="book__title book__margin">{book.Title__c}</h2>
+                    <ul class="book__margin">
+                        <li>Author: {book.Author__c}</li>
+                        <li>Genre: {book.Genres__c}</li>
+                        <li>ISBN: {book.ISBN__c}</li>           
+                    </ul>
+                    <p class="book__margin">{book.Description__c}</p>
+                    <div class="book__margin">
+                        <p class={AvailabilityStyle}>{book.Availability__c}</p>
+                        <div class="counter">
+                            <c-button text="Add to cart" onclick={handleCartClick}></c-button>
+                            <div class="counter">
+                                <p class="counter__button" onclick={decrement}>-</p><p>{counter}</p><p class="counter__button" onclick={increment}>+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</template>

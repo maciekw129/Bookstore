@@ -1,0 +1,10 @@
+<template>
+    <div class="books">
+        <h2 class="books__title">{title}</h2>
+        <div class="books__container">
+            <template for:each={books} for:item="book">
+                <c-book-card class="books__book" key={book.Id} book={book}></c-book-card>
+            </template>
+        </div>
+    </div>
+</template>

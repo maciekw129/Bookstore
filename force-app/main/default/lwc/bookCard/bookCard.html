@@ -1,0 +1,29 @@
+<template>
+    <div class="card" onclick={handleMoreClick}>
+        <img class="card__image" src={book.Cover__c}/>
+        <div class="card__content">
+            <div>
+                <h2 class="card__title">{book.Title__c}</h2>
+                <p class="card__author">{book.Author__c}</p> 
+            </div>
+            <div class="card_content-bottom">
+                <div class="card__genres-container">
+                    <template for:each={genres} for:item="genre" key={index}>
+                        <p class="card__genre" key={index}>{genre}</p>
+                    </template>
+                </div>
+                <div>
+                    <template if:false={isGuestUser}>
+                        <lightning-icon
+                            class="card__icon" 
+                            title="Add to cart" 
+                            icon-name="utility:cart" 
+                            alternative-text="Doc image"
+                            onclick={handleCartClick}
+                        ></lightning-icon>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <div class="search">
+        <input
+            class="search__input" 
+            type="text"
+            title="Search"
+            value={searchTerm}
+            oninput={handleChange}
+            placeholder="Search for a good novel..."
+        />
+        <button class="search__button">
+            <lightning-icon class="search__icon" icon-name="utility:search" size="x-small"></lightning-icon>
+        </button>
+        <template if:true={books}>
+            <ul class="search__results">
+                <template for:each={books} for:item="book">
+                    <li class="search__result" key={book.Id} data-id={book.Id} onclick={handleClick}>
+                        <div class="search__image-wrapper">
+                            <img class="search__image" src={book.Cover__c} alt="Book cover"/> 
+                        </div>
+                        <p>{book.Title__c} - {book.Author__c}</p>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </div>
+</template>

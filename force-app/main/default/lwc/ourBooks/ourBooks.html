@@ -1,0 +1,13 @@
+<template>
+    <c-search></c-search>
+    <template if:true={books}>
+        <div class="books_grid">
+            <template for:each={books} for:item="book">
+                <c-book-card book={book} key={book.id} ></c-book-card>
+            </template>
+        </div> 
+    </template>
+    <template if:true={isLoading}>
+        <c-loading></c-loading>
+    </template>
+</template>

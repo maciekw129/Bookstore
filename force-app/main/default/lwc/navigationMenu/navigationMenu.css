@@ -1,0 +1,47 @@
+.navigation {
+    display: flex;
+    height: 3rem;
+    background-color: #446083;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__title {
+    color: #ffff;
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.navigation__icon {
+    height: 5rem;
+    width: auto;
+}
+
+.navigation__items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation__item {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s linear;
+    padding: 1rem;
+}
+
+.navigation__item:hover {
+    color: #F3BC5A;
+    transition: color 0.2s linear;
+    cursor: pointer;
+}
+
+.navigation__href, .navigation__href:hover, .navigation__href:active, .navigation__href:visited {
+    text-decoration: none;
+}

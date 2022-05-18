@@ -1,0 +1,77 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.book__container {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 4rem;
+    width: 90%;
+}
+
+.book__content-wrapper {
+    flex-basis: 50%;
+}
+
+.book__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.book__image-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-basis: 50%;
+}
+
+.book__image {
+    max-height: 500px;
+}
+
+.book__title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.book__availability {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.book__availability-available {
+    color: green;
+}
+
+.book__availability-unavailable {
+    color: red;
+}
+
+.book__availability-little {
+    color: orange;
+}
+
+.book__margin {
+    margin-bottom: 3rem;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.counter__button {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+    transition: color 0.2s linear;
+}
+
+.counter__button:hover {
+    cursor: pointer;
+    color: #F3BC5A;
+    transition: color 0.2s linear;
+}
