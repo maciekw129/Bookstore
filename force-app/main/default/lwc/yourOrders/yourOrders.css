@@ -1,0 +1,52 @@
+.orders {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.orders__table {
+    width: 85%;
+    border: 1px solid lightgray;
+}
+
+.orders__row {
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+}
+
+.orders__row > td, .orders__header > th {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.orders__header {
+    background-color: #446083;
+    color: #ffff;
+}
+
+.orders__arrow {
+    transition: transform 0.2s ease;
+}
+
+.orders__arrow:hover {
+    cursor: pointer;
+}
+
+.books {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.75s ease;
+}
+
+.books__row {
+    background-color: hsl(0, 0%, 95%);
+}
+
+.books__row > td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 0.5rem;
+}
+

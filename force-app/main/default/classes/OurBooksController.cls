@@ -19,4 +19,9 @@ public with sharing class OurBooksController {
     public static List<book__c> getBestSellers() {
         return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Number_of_copies_sold__c FROM Book__c ORDER BY Number_of_copies_sold__c DESC LIMIT 6];
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<book__c> getNewest() {
+        return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Number_of_copies_sold__c FROM Book__c ORDER BY createdDate DESC LIMIT 6];
+    }
 }

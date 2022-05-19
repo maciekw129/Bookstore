@@ -1,0 +1,48 @@
+<template>
+    <div class="orders">
+        <table class="orders__table">
+                <tr class="orders__header">
+                    <th>No.</th>
+                    <th>Order number</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            <template for:each={orders} for:item="order" for:index="index">
+                <tr key={order.Id} class="orders__row">
+                    <td>{index}</td>
+                    <td>{order.Name}</td>
+                    <td>{order.Order_date__c}</td>
+                    <td>{order.Order_status__c}</td>
+                    <td>
+                        <lightning-icon
+                            size="x-small"
+                            class="orders__arrow" 
+                            title="Show details" 
+                            icon-name="utility:switch" 
+                            alternative-text="Show details"
+                            onclick={handleClick}
+                            value={index}
+                        ></lightning-icon>
+                    </td>
+                </tr>
+                <tr key={order.Id}>
+                    <td colspan="5">
+                        <div class="books" data-target-id={index}>
+                            <table>
+                                <template for:each={order.Order_Items__r} for:item="orderItem">
+                                    <tr key={orderItem} class="books__row">
+                                        <td>x{orderItem.Quantity__c}</td>
+                                        <td>{orderItem.Book__r.Title__c}</td>
+                                        <td>{orderItem.Book__r.Author__c}</td>
+                                        <td>{orderItem.Book__r.ISBN__c}</td>
+                                    </tr>
+                                </template>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </template>
+        </table>
+    </div>
+</template>

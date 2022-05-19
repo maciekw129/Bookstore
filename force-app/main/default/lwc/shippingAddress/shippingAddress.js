@@ -7,6 +7,7 @@ export default class ShippingAddress extends LightningElement {
         postalCode: '',
         street: '',
         apartment: '',
+        phone: ''
     };
     @track isSuccess = false;
 
@@ -22,7 +23,8 @@ export default class ShippingAddress extends LightningElement {
             city: this.address.city,
             postalCode: this.address.postalCode,
             street: this.address.street,
-            apartment: this.address.apartment
+            apartment: this.address.apartment,
+            phone: this.address.phone
         })
         .then(() => {
             this.isSuccess = true;

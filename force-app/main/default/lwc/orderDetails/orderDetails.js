@@ -9,6 +9,7 @@ import CITY_FIELD from '@salesforce/schema/Order__c.city__c';
 import POSTALCODE_FIELD from '@salesforce/schema/Order__c.postal_code__c';
 import STREET_FIELD from '@salesforce/schema/Order__c.street__c';
 import APARTMENT_FIELD from '@salesforce/schema/Order__c.apartment__c';
+import PHONE_FIELD from '@salesforce/schema/Order__c.Phone__c';
 
 const columns = [
     { label: 'Quantity', fieldName: 'Quantity' },
@@ -36,6 +37,7 @@ export default class OrderDetails extends LightningElement {
     postalCodeField = POSTALCODE_FIELD;
     streetField = STREET_FIELD;
     apartmentField = APARTMENT_FIELD;
+    phoneField = PHONE_FIELD;
     columns = columns;
     @track bookList;
     errors

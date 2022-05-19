@@ -1,24 +1,24 @@
-import { LightningElement, wire, track } from 'lwc';
+import { LightningElement, track } from 'lwc';
 import getAllBooks from '@salesforce/apex/OurBooksController.getAllBooks';
 import isGuestUser from '@salesforce/user/isGuest';
 
 export default class OurBooks extends LightningElement {
-    @track books;
+    @track books = {};
     @track isLoading = true;
     @track errorMessage;
     isGuest = isGuestUser;
+    numberOfPages;
+    page = 1;
 
-    @wire(getAllBooks)
-    wiredBooks({ error, data }) {
-        if(data) {
-            console.log(data);
-            this.books = data;
+    connectedCallback() {
+        getAllBooks()
+        .then(result => {
+            this.books = result;
             this.isLoading = false;
-        } else if(error) {
-            this.books = undefined;
-            this.isLoading = false;
-            this.errorMessage = 'Something went wrong, try refresh the page.'
-            console.log(error);
-        }
+            this.numberOfPages = Math.ceil(this.books.length / 12);
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 }

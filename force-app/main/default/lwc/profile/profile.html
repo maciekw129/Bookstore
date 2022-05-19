@@ -1,0 +1,31 @@
+<template>
+    <div class="profile">
+        <div class="nav">
+            <a onclick={handleAboutYouClick} class="nav__item">About you</a>
+            <a onclick={handleYourOrdersClick} class="nav__item">Your orders</a>
+        </div>
+        <div class="profile__content">
+            <template if:true={isAboutYouPageVisible}>
+                <div>
+                    <div>
+                        <h2>Personal informations</h2>
+                        <p>First name: </p>
+                        <p>Last name: </p>
+                        <p>Phone: </p>
+                    </div>
+                    <div>
+                        <h2>Address</h2>
+                        <p>City: </p>
+                        <p>Postal code: </p>
+                        <p>Street: </p>
+                        <p>Apartment: </p>
+                    </div>
+                </div>
+            </template>
+            <template if:true={isYourOrdersPageVisible}>
+                <c-your-orders></c-your-orders>
+            </template>
+
+        </div>
+    </div>
+</template>
