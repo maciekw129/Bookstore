@@ -1,10 +1,30 @@
 <template>
     <div class="books">
         <h2 class="books__title">{title}</h2>
-        <div class="books__container">
-            <template for:each={books} for:item="book">
-                <c-book-card class="books__book" key={book.Id} book={book}></c-book-card>
-            </template>
+        <div class="books__container-wrapper">
+            <button class="books__button" onclick={handleLeftClick}>
+                <lightning-icon
+                            size="small"
+                            class="books__icon" 
+                            title="Go left" 
+                            icon-name="utility:left" 
+                            alternative-text="Go left"
+                ></lightning-icon>
+            </button>
+            <div class="books__container">
+                <template for:each={books} for:item="book">
+                    <c-book-card class="books__book" key={book.Id} book={book}></c-book-card>
+                </template>
+            </div>
+            <button class="books__button" onclick={handleRightClick}>
+                <lightning-icon
+                            size="small"
+                            class="books__icon" 
+                            title="Go right" 
+                            icon-name="utility:right" 
+                            alternative-text="Go right"
+                ></lightning-icon>
+            </button>
         </div>
     </div>
 </template>
