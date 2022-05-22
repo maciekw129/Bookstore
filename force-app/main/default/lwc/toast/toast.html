@@ -1,0 +1,19 @@
+<template>
+    <div class="toast__wrapper">
+        <div class="toast">
+            <p class="toast__message">{message}</p>
+            <lightning-icon
+                class="toast__icon" 
+                title="Success" 
+                icon-name="utility:success" 
+                alternative-text="Success icon"
+            ></lightning-icon>
+            <div class="toast__buttons">
+                <c-button onclick={handleClick} text={buttonText}></c-button>
+                <template if:true={isCartToast}>
+                    <c-button onclick={handleCartNavigate} text="Go to cart"></c-button>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

@@ -2,7 +2,7 @@ public with sharing class OurBooksController {
 
     @AuraEnabled(cacheable=true)
     public static List<Book__c> getAllBooks() {
-        return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c FROM Book__c];
+        return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, on_stock__c FROM Book__c];
     }
 
     @AuraEnabled(cacheable=true)
@@ -23,5 +23,19 @@ public with sharing class OurBooksController {
     @AuraEnabled(cacheable=true)
     public static List<book__c> getNewest() {
         return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Number_of_copies_sold__c FROM Book__c ORDER BY createdDate DESC LIMIT 6];
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<String> getAllGenres() {
+        List<String> genres = new List<String>();
+
+        Schema.DescribeFieldResult fieldResult = Book__c.Genres__c.getDescribe();
+        List<Schema.PicklistEntry> pickListValues = fieldResult.getPicklistValues();
+
+        for(Schema.PicklistEntry pickListValue : pickListValues) {
+            genres.add(pickListValue.getLabel());
+        }
+
+        return genres;
     }
 }

@@ -1,4 +1,12 @@
 <template>
+    <template if:true={isToastVisible}>
+        <c-toast
+        message="You added book to cart!"
+        button-text="Continue shopping"
+        ontoastevent={handleToastClose}
+        is-cart-toast="true"
+        ></c-toast>
+    </template>
     <div class="card" onclick={handleMoreClick}>
         <img class="card__image" src={book.Cover__c}/>
         <div class="card__content">
@@ -13,7 +21,7 @@
                     </template>
                 </div>
                 <div>
-                    <template if:false={isGuestUser}>
+                    <template if:true={isBookAvailable}>
                         <lightning-icon
                             class="card__icon" 
                             title="Add to cart" 

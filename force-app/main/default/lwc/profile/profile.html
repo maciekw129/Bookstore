@@ -1,31 +1,93 @@
 <template>
+    <template if:true={isToastVisible}>
+        <c-toast
+        message="You successfully changed your profile data!"
+        button-text="Okey"
+        ontoastevent={handleToastClose}
+        ></c-toast>
+    </template>
     <div class="profile">
         <div class="nav">
             <a onclick={handleAboutYouClick} class="nav__item">About you</a>
             <a onclick={handleYourOrdersClick} class="nav__item">Your orders</a>
         </div>
-        <div class="profile__content">
             <template if:true={isAboutYouPageVisible}>
-                <div>
+                <div class="profile__content profile__content-center">
                     <div>
-                        <h2>Personal informations</h2>
-                        <p>First name: </p>
-                        <p>Last name: </p>
-                        <p>Phone: </p>
+                        <div class="profile__section">
+                            <h2 class="profile__title">Personal informations</h2>
+                            <div class="profile__data">
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.FirstName}
+                                    input-name="FirstName"
+                                    input-label="First name:"
+                                    input-placeholder="enter your first name here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.LastName}
+                                    input-name="LastName"
+                                    input-label="Last name:"
+                                    input-placeholder="enter your last name here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.Phone}
+                                    input-name="Phone"
+                                    input-label="Phone:"
+                                    input-placeholder="enter your phone here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                            </div>
+                        </div>
+                        <div class="profile__section">
+                            <h2 class="profile__title">Address</h2>
+                            <div class="profile__data">
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.City__c}
+                                    input-name="City__c"
+                                    input-label="City:"
+                                    input-placeholder="enter city here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.Postal_code__c}
+                                    input-name="Postal_code__c"
+                                    input-label="Postal code:"
+                                    input-placeholder="enter postal code here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.Street__c}
+                                    input-name="Street__c"
+                                    input-label="Street:"
+                                    input-placeholder="enter your street here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                                <c-text-input
+                                    class="profile__input"
+                                    input-value={userDetails.Apartment__c}
+                                    input-name="Apartment__c"
+                                    input-label="Apartment:"
+                                    input-placeholder="enter your apartment here..."
+                                    onvaluesend={handleValueSend}
+                                ></c-text-input>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h2>Address</h2>
-                        <p>City: </p>
-                        <p>Postal code: </p>
-                        <p>Street: </p>
-                        <p>Apartment: </p>
-                    </div>
+                    <c-button onclick={handleClick} class="profile__button" text="Update informations"></c-button>
                 </div>
             </template>
             <template if:true={isYourOrdersPageVisible}>
-                <c-your-orders></c-your-orders>
+                <div class="profile__content">
+                    <c-your-orders></c-your-orders>
+                </div>
             </template>
-
-        </div>
     </div>
 </template>

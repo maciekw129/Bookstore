@@ -1,0 +1,20 @@
+.input__label {
+    color: #162436;
+    display: inline-block;
+    min-width: 175px;
+}
+
+.input {
+    border: none;
+    border-bottom: 2px solid hsl(0, 0%, 90%);
+    padding: 0.5rem 0rem;
+    font-size: 0.9rem;
+    width: 200px;
+    transition: border-color 0.2s linear;
+}
+
+.input:focus {
+    outline: none;
+    border-color:#F3BC5A;
+    transition: border-color 0.2s linear;
+}

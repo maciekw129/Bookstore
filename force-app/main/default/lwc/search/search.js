@@ -15,20 +15,18 @@ export default class Search extends NavigationMixin(LightningElement) {
         this.books = null;
         this.searchTerm = event.target.value;
         this.timeout = setTimeout(() => {
-            console.log('I search!')
             searchBooks({
-                searchTerm: this.searchTerm
+                searchTerm: this.searchTerm + '*'
             })
             .then(result => {
                 if(result[0].length > 0) {
                     this.books = result[0];
                 }
             }) 
-        }, 2000)
+        }, 1000)
     }
 
-    handleClick(event) {
-        console.log(event.currentTarget.dataset.id)
+    handleResultClick(event) {
         this[NavigationMixin.Navigate]({
             type: 'comm__namedPage',
             attributes: {
@@ -38,5 +36,21 @@ export default class Search extends NavigationMixin(LightningElement) {
                 recordId: event.currentTarget.dataset.id
             }
         })
+    }
+
+    handleSearchClick() {
+        if(!this.searchTerm) {
+            return
+        } else {
+            this[NavigationMixin.Navigate]({
+                type: 'comm__namedPage',
+                attributes: {
+                    name: 'our_books__c'
+                },
+                state: {
+                    searchTerm: this.searchTerm
+                }
+            })
+        }
     }
 }

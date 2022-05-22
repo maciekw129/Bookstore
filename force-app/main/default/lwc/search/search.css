@@ -31,6 +31,7 @@
 }
 
 .search__results {
+    display: none;
     position: absolute;
     top: 2.75rem;
     left: 0;
@@ -48,6 +49,10 @@
     align-items: center;
     transition: background-color 0.2s linear;
     border-radius: 5px;
+}
+
+.search__input:focus + .search__results, .search__results:hover {
+    display: block;
 }
 
 .search__result:hover {

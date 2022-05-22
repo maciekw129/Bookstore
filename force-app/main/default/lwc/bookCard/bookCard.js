@@ -6,6 +6,7 @@ import { NavigationMixin } from 'lightning/navigation';
 export default class BookCard extends NavigationMixin(LightningElement) {
     @api book;
     isGuestUser = isGuestUser;
+    isToastVisible = false;
 
     get genres() {
         if(this.book.Genres__c) {
@@ -13,11 +14,18 @@ export default class BookCard extends NavigationMixin(LightningElement) {
         }
     }
 
+    get isBookAvailable() {
+        return this.book.on_stock__c <= 0 ? false : true;
+    }
+
     handleCartClick(event) {
         event.stopPropagation();
         AddItemToCart({
             bookToAdd: this.book.Id,
             quantity: 1
+        })
+        .then(() => {
+            this.isToastVisible = true;
         })
         .catch(error => {
             console.log(error);
@@ -34,5 +42,9 @@ export default class BookCard extends NavigationMixin(LightningElement) {
                 recordId: this.book.Id,
             }
         })
+    }
+
+    handleToastClose() {
+        this.isToastVisible = false;
     }
 }
