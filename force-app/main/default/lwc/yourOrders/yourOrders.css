@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: 1rem 0;
 }
 
 .orders__table {
@@ -14,6 +15,13 @@
 .orders__row {
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
+    transition: background-color 0.2s linear;
+}
+
+.orders__row:hover {
+    background-color: #F3BC5A;
+    transition: background-color 0.2s linear;
+    cursor: pointer;
 }
 
 .orders__row > td, .orders__header > th {
@@ -42,6 +50,7 @@
 
 .books__row {
     background-color: hsl(0, 0%, 95%);
+    height: 64px;
 }
 
 .books__row > td {

@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 1.5rem 0;
+    padding: 1.5rem;
     border-bottom: 1px solid lightgray;
 }
 
@@ -47,14 +47,27 @@
 
 
 .books__container {
-    position: relative;
     width: 90%;
     display: flex;
     overflow: hidden;
+    overflow-wrap: anywhere;
 }
 
 .books__book {
-    padding: 0.25rem 1.66%;
-    min-width: 33%;
+    box-sizing: border-box;
+    padding: 0.25rem 0.5rem;
+    min-width: 33.33%;
     transition: transform 0.25s ease;
+}
+
+@media only screen and (max-width: 1050px) {
+    .books__book {
+        min-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .books__book {
+        min-width: 100%;
+    }
 }

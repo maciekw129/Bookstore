@@ -1,0 +1,59 @@
+{
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "640b4e2f-a708-4f0f-bd0b-4a2ce1a45a26",
+  "label" : "Create order",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "backgroundImageConfig" : "",
+        "backgroundImageOverlay" : "rgba(0,0,0,0)",
+        "sectionConfig" : "{\"UUID\":\"bb261fcc-006e-4790-ba3d-2943b48a3606\",\"columns\":[{\"UUID\":\"4ff50116-661a-4415-8696-bc2607158702\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "bb261fcc-006e-4790-ba3d-2943b48a3606",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:shippingAddress",
+          "id" : "15f09dd1-36ef-443e-8668-e5805877a303",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "4ff50116-661a-4415-8696-bc2607158702",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : null,
+      "type" : "component"
+    } ],
+    "id" : "8acc715f-7386-46e7-9359-d3618b489dae",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "Create order",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "171f2d46-420c-4acb-8ad2-4a9b764ef9a3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6ee82e85-d66f-4b77-90d1-c09d60edcbf7",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "XqHOVCMpwzu0IbgtEKyJjed1l7EQkD",
+  "type" : "view",
+  "viewType" : "custom-create-order"
+}

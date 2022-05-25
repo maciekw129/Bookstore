@@ -1,15 +1,17 @@
 import { LightningElement, wire, track } from 'lwc';
 import { CurrentPageReference } from 'lightning/navigation';
+import { NavigationMixin } from 'lightning/navigation';
 
 import getNavigationMenuItems from '@salesforce/apex/NavigationMenuItemsController.getNavigationMenuItems';
 import isGuestUser from '@salesforce/user/isGuest';
 import basePath from '@salesforce/community/basePath';
 
-export default class NavigationMenu extends LightningElement {
+export default class NavigationMenu extends NavigationMixin(LightningElement) {
     @track menuItems;
     @track isLoaded = false;
     @track error;
     publishedState;
+    isMenuNavVisible = false;
 
     @wire(getNavigationMenuItems, {
         menuName: isGuestUser ? 'Default Navigation' : 'User Navigation',
@@ -56,5 +58,20 @@ export default class NavigationMenu extends LightningElement {
     get logoutLink() {
         const sitePrefix = basePath.replace(/\/s$/i, "");
         return sitePrefix + "/secur/logout.jsp";
+    }
+
+    toggleIsMenuNavVisible() {
+        const navigation = this.template.querySelector('[data-target-id="mobile-nav"');
+        this.isMenuNavVisible ? navigation.style.transform = 'translateX(0%)' : navigation.style.transform = 'translateX(100%)';
+        this.isMenuNavVisible = !this.isMenuNavVisible;
+    }
+
+    handleHomeNavigation() {
+        this[NavigationMixin.Navigate]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'Home'
+            }
+        })
     }
 }

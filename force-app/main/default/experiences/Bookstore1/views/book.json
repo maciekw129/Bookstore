@@ -1,0 +1,59 @@
+{
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "a5d31941-390d-49e4-9daa-f49490e860be",
+  "label" : "book",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "backgroundImageConfig" : "",
+        "backgroundImageOverlay" : "rgba(0,0,0,0)",
+        "sectionConfig" : "{\"UUID\":\"8e10c2f5-a189-47f6-8196-bb7934106c08\",\"columns\":[{\"UUID\":\"af1cd3ad-dfe0-4c1c-8021-eebe348ccc1f\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "8e10c2f5-a189-47f6-8196-bb7934106c08",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:bookDetail",
+          "id" : "e6cae9c6-c3d9-46fd-8d0f-b519c47499a9",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "af1cd3ad-dfe0-4c1c-8021-eebe348ccc1f",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : null,
+      "type" : "component"
+    } ],
+    "id" : "3929e5e7-3133-474e-bdd8-93817122a742",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "book",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "45fee74f-8b4c-4b4b-98a0-73dd7e572423",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f133c7b0-1c2c-44b4-a00f-7c08fbb269b1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "XqHOVCMpwzu0IbgtEKyJjed1l7EQkD",
+  "type" : "view",
+  "viewType" : "custom-book"
+}

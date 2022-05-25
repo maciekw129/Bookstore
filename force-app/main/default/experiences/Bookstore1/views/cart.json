@@ -1,0 +1,59 @@
+{
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "a07e1299-ac92-43f8-b278-97339d1a2979",
+  "label" : "Cart",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "backgroundImageConfig" : "",
+        "backgroundImageOverlay" : "rgba(0,0,0,0)",
+        "sectionConfig" : "{\"UUID\":\"0129c27e-039d-4e2a-b83e-96ff8c43bc33\",\"columns\":[{\"UUID\":\"3f94aae8-1378-4446-a92d-6dbce5136f72\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "0129c27e-039d-4e2a-b83e-96ff8c43bc33",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:cart",
+          "id" : "149ba9f0-4555-41b3-beeb-3cdcd6f4ac68",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3f94aae8-1378-4446-a92d-6dbce5136f72",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : null,
+      "type" : "component"
+    } ],
+    "id" : "82e3d514-da1a-41ef-9d26-445f248edfc5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "Cart",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "74138a5d-f10c-4161-93cd-4da6870f3454",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "df233c3e-82da-41a6-b038-2adbab26624c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "XqHOVCMpwzu0IbgtEKyJjed1l7EQkD",
+  "type" : "view",
+  "viewType" : "custom-cart"
+}

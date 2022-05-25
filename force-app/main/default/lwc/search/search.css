@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 1rem 0;
 }
 
 .search__input {
@@ -41,6 +42,8 @@
     width: 100%;
     z-index: 99;
     border: 1.25px solid #446083;
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 .search__result {
@@ -70,4 +73,16 @@
 .search__image {
     max-height: 5rem;
     margin-right: 1rem;
+}
+
+@media only screen and (max-width: 700px) {
+    .search__input {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .search__input {
+        width: 95%;
+    }
 }

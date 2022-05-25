@@ -8,7 +8,6 @@ export default class Search extends NavigationMixin(LightningElement) {
     timeout;
 
     handleChange(event) {
-        console.log(this.timeout)
         if(this.timeout) {
             clearTimeout(this.timeout)
         }

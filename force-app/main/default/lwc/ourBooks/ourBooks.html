@@ -1,27 +1,29 @@
 <template>
-    <div class="books__filter">
-        <template for:each={genres} for:item="genre">
-            <c-book-filter key={genre} value={genre} onfilterevent={handleFilterEvent}></c-book-filter>
-        </template>
-        <button onclick={handleClearFilters}>X</button>
-    </div>
-    <div class="books__grid">
-        <template for:each={currentPageBooks} for:item="book">
-            <c-book-card book={book} key={book.id} ></c-book-card>
-        </template>
-    </div>
-    <div class="pagination">
-        <button class="pagination__button" onclick={handlePreviousPage}>&lt;</button>
-            <div class="pagination__numbers">
-                <template for:each={paginationArray} for:item="page">
-                    <button 
-                        key={page} 
-                        class="pagination__number" 
-                        value={page} 
-                        onclick={handleNavigatePagination}
-                    >{page}</button>
+    <div class="books__container">
+        <div>
+            <c-our-books-search
+                onfilterevent={handleFilterEvent}
+                onsearchevent={handleSearchEvent}
+            ></c-our-books-search>
+            <div class="books__grid">
+                <template for:each={currentPageBooks} for:item="book">
+                    <c-book-card book={book} key={book.id} ></c-book-card>
                 </template>
             </div>
-        <button class="pagination__button" onclick={handleNextPage}>&gt;</button>
+        </div>
+        <div class="pagination">
+            <button class="pagination__button" onclick={handlePreviousPage}>&lt;</button>
+                <div class="pagination__numbers">
+                    <template for:each={paginationArray} for:item="page">
+                        <button 
+                            key={page} 
+                            class="pagination__number" 
+                            value={page} 
+                            onclick={handleNavigatePagination}
+                        >{page}</button>
+                    </template>
+                </div>
+            <button class="pagination__button" onclick={handleNextPage}>&gt;</button>
+        </div>
     </div>
 </template>

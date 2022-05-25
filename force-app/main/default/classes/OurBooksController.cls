@@ -38,4 +38,9 @@ public with sharing class OurBooksController {
 
         return genres;
     }
+
+    @AuraEnabled
+    public static List<Order_item__c> getMostPopularCategories(){
+        return [SELECT book__r.genres__c FROM Order_item__c];
+    }
 }

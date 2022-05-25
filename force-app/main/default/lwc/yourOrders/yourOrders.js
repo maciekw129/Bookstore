@@ -7,8 +7,11 @@ export default class YourOrders extends LightningElement {
     connectedCallback() {
         getAllOrders()
         .then(result => {
-            this.orders = result
             console.log(result);
+            this.orders = result.map(order => {
+                return {...order, Order_date__c: new Date(order.Order_date__c).toLocaleDateString() };
+            });
+            console.log(JSON.stringify(this.orders));
         })
         .catch(error => {
             console.log(error)
@@ -16,9 +19,9 @@ export default class YourOrders extends LightningElement {
     }
 
     handleClick(event) {
-        const element = event.currentTarget;
-        const book = this.template.querySelector(`[data-target-id="${element.value}"]`);
-        element.style.transform === "rotate(180deg)" ? element.style.transform = "rotate(0deg)" : element.style.transform = "rotate(180deg)";
-        book.style.maxHeight === "500px" ? book.style.maxHeight = "0" : book.style.maxHeight = "500px";
+        const index = event.currentTarget.dataset.value;
+        const book = this.template.querySelector(`[data-id="${index}"]`);
+        const numberOfItems = this.orders[index].Order_Items__r.length;
+        book.style.maxHeight === `${numberOfItems * 64}px` ? book.style.maxHeight = "0" : book.style.maxHeight = `${numberOfItems * 64}px`;
     }
 }

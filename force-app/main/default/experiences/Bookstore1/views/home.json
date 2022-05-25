@@ -1,0 +1,59 @@
+{
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "c68d0e1a-b564-4796-b5c6-9c15383cd57c",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "backgroundImageConfig" : "",
+        "backgroundImageOverlay" : "rgba(0, 0, 0, 0)",
+        "sectionConfig" : "{\"UUID\":\"f926d48b-9324-47ed-99b7-b4327bf61073\",\"columns\":[{\"UUID\":\"8ced2278-ace9-421e-bc4d-61faa77abb98\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "f926d48b-9324-47ed-99b7-b4327bf61073",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:home",
+          "id" : "11a50ac8-2878-46d9-b728-0202014a0662",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "8ced2278-ace9-421e-bc4d-61faa77abb98",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : null,
+      "type" : "component"
+    } ],
+    "id" : "3313cceb-c0ca-43e8-ae25-93e945039afb",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "Home",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "4cc76847-41ca-41b0-a42b-1641248f18fa",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "119f37b6-2ec2-4f0d-b58d-87093bfd42ab",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "XqHOVCMpwzu0IbgtEKyJjed1l7EQkD",
+  "type" : "view",
+  "viewType" : "home"
+}

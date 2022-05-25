@@ -1,3 +1,10 @@
+.books__container {
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .books__grid {
     display: grid;
     padding: 1rem;
@@ -7,16 +14,12 @@
     justify-content: center;
 }
 
-.books__filter {
-    border-bottom: 1.5px solid hsl(0, 0%, 90%);
-    padding-bottom: 1rem;
-}
-
 .pagination {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
 .pagination__numbers {
@@ -33,6 +36,7 @@
     background-color: white;
     border: 1px solid lightgray;
     transition: background-color 0.2s linear;
+    padding: 0.5rem;
 }
 
 .pagination__number:hover {
@@ -45,9 +49,22 @@
     border: 1px solid lightgray;
     transition: background-color 0.2s linear;
     margin: 0 0.25rem;
+    padding: 0.5rem;
 }
 
 .pagination__button:hover {
     background-color: #F3BC5A;
     transition: background-color 0.2s linear;
+}
+
+@media only screen and (max-width: 1050px) {
+    .books__grid {
+        grid-template: auto / 1fr  1fr;
+    }
+}
+
+@media only screen and (max-width: 730px) {
+    .books__grid {
+        grid-template: auto / 1fr;
+    }
 }

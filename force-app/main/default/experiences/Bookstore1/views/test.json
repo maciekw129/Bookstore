@@ -1,0 +1,43 @@
+{
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "componentName" : "c:customThemeLayout",
+  "id" : "0287e07c-915d-4df8-b855-1f55cf63ae48",
+  "label" : "test",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "test",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "1b1f3eee-28c7-4910-8f73-7de410325160",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "602853f0-5049-4d4d-bbd8-7ebce2f682b3",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "b9b94064-99a3-4a7d-b48c-1a22a4c762bb",
+    "regionName" : "default",
+    "type" : "region"
+  }, {
+    "id" : "8d5c8c32-985c-4199-998f-26d85eab022d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "b83d699d-a245-4701-8bdb-13b89fd15aa9",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "id" : "f8c05a5b-8117-49bd-89f5-c77a21074a78",
+    "regionName" : "main",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "XqHOVCMpwzu0IbgtEKyJjed1l7EQkD",
+  "type" : "view",
+  "viewType" : "custom-test"
+}

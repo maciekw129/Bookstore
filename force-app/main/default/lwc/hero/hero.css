@@ -1,28 +1,31 @@
 .hero {
     position: relative;
     width: 100%;
-    height: 20rem;
     background-image: url('https://aceagency6-dev-ed--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Jpg&versionId=0687Q000002PFSI&operationContext=DELIVERY&contentId=05T7Q00000A7xtW&page=0&d=/a/7Q000000PDVb/lxw_zkEbVxqeUF9qansJ2aQf1POGK4tBAcjaywF8Krc&oid=00D7Q000006G1k6&dpt=null&viewId=');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #162436;
+    padding: 2rem;
 }
 
 .hero__quote {
-    padding: 2rem;
-    padding-bottom: 0.25rem;
     font-size: 1.5rem;
     font-weight: bold;
     font-style: italic;
+    text-align: center;
+}
+
+.hero__author {
+    text-align: center;
 }
 
 .hero__text {
     padding: 2rem;
     font-size: 1.25rem;
     font-weight: bold;
+    text-align: center;
 }

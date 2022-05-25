@@ -1,0 +1,61 @@
+<template>
+    <div class="container">
+        <div class="filter__container">
+            <input
+                class="filter__value"
+                type="text"
+                disabled
+                value={filterValue}
+                placeholder="choose filter"
+            />
+            <template if:true={filterValue}>
+                <button class="filter__icon-wrapper" onclick={handleClearFilter}>
+                    <lightning-icon
+                        size="xx-small"
+                        class="filter__icon" 
+                        title="Clear filter" 
+                        icon-name="utility:close"
+                    ></lightning-icon>
+                </button>
+            </template>
+            <template if:false={filterValue}>
+                <button class="filter__icon-wrapper filter__icon-wrapper-switch" data-id="filterIcon" onclick={showFilterGenres}>
+                    <lightning-icon
+                        size="xx-small"
+                        class="filter__icon" 
+                        title="Show details" 
+                        icon-name="utility:switch" 
+                    ></lightning-icon>
+                </button>
+            </template>              
+            <ul class="filter__genres" data-id="filterGenres">
+                <template for:each={genres} for:item="genre">
+                    <li
+                        class="filter__genre" 
+                        key={genre} 
+                        onclick={handleFilterChange}
+                        data-value={genre}
+                    >{genre}</li>
+                </template>
+            </ul>
+        </div>
+        <div class="search__container">
+            <input 
+                class="search"
+                type="text"
+                placeholder="My dream book is..."
+                value={searchValue}
+                oninput={handleSearchChange}
+            />
+            <template if:true={searchValue}>
+                <lightning-icon
+                    size="xx-small"
+                    class="search__icon" 
+                    title="Clear search" 
+                    icon-name="utility:close"
+                    onclick={handleClearSearch}
+                ></lightning-icon>
+            </template>
+        </div>
+    </div>
+</template>

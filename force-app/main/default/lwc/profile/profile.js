@@ -15,14 +15,24 @@ export default class Profile extends LightningElement {
         })
     }
 
-    handleAboutYouClick() {
+    handleAboutYouClick(event) {
+        this.clearColor();
+        event.currentTarget.style.color = '#F3BC5A';
         this.isAboutYouPageVisible = true;
         this.isYourOrdersPageVisible = false;
     }
 
-    handleYourOrdersClick() {
+    handleYourOrdersClick(event) {
+        this.clearColor();
+        event.currentTarget.style.color = '#F3BC5A';
         this.isAboutYouPageVisible = false;
         this.isYourOrdersPageVisible = true;
+    }
+
+    clearColor() {
+        this.template.querySelectorAll(".nav__item").forEach(item => {
+            item.style.color = 'black';
+        });
     }
 
     handleValueSend(event) {

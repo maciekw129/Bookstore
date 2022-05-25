@@ -23,6 +23,7 @@
     justify-content: space-around;
     border-radius: 5px;
     padding: 1rem;
+    max-width: 90%;
 }
 
 .toast__message {

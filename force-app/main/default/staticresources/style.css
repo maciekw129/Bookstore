@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.section-content, .community_layout-section_section {
+    padding: 0 !important;
+}
+
+.col-large-size_12-of-12, .col-size_12-of-12, .community_layout-column_column-host {
+    display: block !important;
+}
+
+.community_layout-sldsFlexibleLayout_sldsFlexibleLayout-host {
+    height: 100%;
+}
+
+ul::-webkit-scrollbar {
+    width: 5px;
+}
+
+ul::-webkit-scrollbar-track {
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 50px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background-color: #F3BC5A;
+    border-radius: 50px;
+
+}

@@ -1,10 +1,10 @@
 <template>
     <template if:true={isToastVisible}>
         <c-toast
-        message="You added book to cart!"
-        button-text="Continue shopping"
-        ontoastevent={handleToastClose}
-        is-cart-toast="true"
+            message="You added book to cart!"
+            button-text="Continue shopping"
+            ontoastevent={handleToastClose}
+            is-cart-toast="true"
         ></c-toast>
     </template>
     <div class="card" onclick={handleMoreClick}>

@@ -1,0 +1,10 @@
+{
+  "activeViewId" : "a07e1299-ac92-43f8-b278-97339d1a2979",
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "configurationTags" : [ ],
+  "id" : "abd454d1-8850-4b32-8e1b-f97dedf33732",
+  "label" : "Cart",
+  "routeType" : "custom-cart",
+  "type" : "route",
+  "urlPrefix" : "cart"
+}

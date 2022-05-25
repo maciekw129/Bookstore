@@ -15,7 +15,7 @@ export default class BookCard extends NavigationMixin(LightningElement) {
     }
 
     get isBookAvailable() {
-        return this.book.on_stock__c <= 0 ? false : true;
+        return this.book.on_stock__c <= 0 ? false : !this.isGuestUser;
     }
 
     handleCartClick(event) {

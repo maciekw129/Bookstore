@@ -42,13 +42,11 @@ export default class NavigationMenuItem extends NavigationMixin(LightningElement
         }
     } 
 
-    handleClick(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
+    handleClick() {
+        const hideNavbar = new CustomEvent('hidenavbar');
+        this.dispatchEvent(hideNavbar);
         if(this.pageReference) {
             this[NavigationMixin.Navigate](this.pageReference);
-        } else {
-            console.log(`sth went wrong`);
         }
     }
 }

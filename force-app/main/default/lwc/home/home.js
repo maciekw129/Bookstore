@@ -1,6 +1,7 @@
 import { LightningElement, track } from 'lwc';
 import getBestSellers from '@salesforce/apex/OurBooksController.getBestSellers';
 import getNewest from '@salesforce/apex/OurBooksController.getNewest';
+import getMostPopularCategories from '@salesforce/apex/OurBooksController.getMostPopularCategories';
 
 export default class Home extends LightningElement {
     @track bestSellers;
@@ -23,5 +24,9 @@ export default class Home extends LightningElement {
         .catch(error => {
             console.log(error);
         })
+        getMostPopularCategories()
+            .then(result => {
+                console.log(result)
+            })
     }
 }

@@ -3,6 +3,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #446083;
+    height: 2rem;
+    position: absolute;
+    top: 100vh;
 }
 
 .footer__copyright {

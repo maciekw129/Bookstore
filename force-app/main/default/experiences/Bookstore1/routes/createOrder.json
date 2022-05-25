@@ -1,0 +1,10 @@
+{
+  "activeViewId" : "640b4e2f-a708-4f0f-bd0b-4a2ce1a45a26",
+  "appPageId" : "f2ef692d-1192-4d8c-9378-a025bf9a6d21",
+  "configurationTags" : [ ],
+  "id" : "f3ea3d04-7ad7-4b58-ad0e-f6e0ffc16837",
+  "label" : "Create order",
+  "routeType" : "custom-create-order",
+  "type" : "route",
+  "urlPrefix" : "create-order"
+}

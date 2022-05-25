@@ -4,13 +4,26 @@ export default class HomepageBooks extends LightningElement {
     @api title;
     @api books;
     page = 0;
+    cardsOnPage;
+
+    connectedCallback() {
+        const firstBreakpoint = window.matchMedia('(max-width: 700px)');
+        const secondBreakpoint = window.matchMedia('(max-width: 1050px)');
+        if(firstBreakpoint.matches) {
+            this.cardsOnPage = 1;
+        } else if (secondBreakpoint.matches) {
+            this.cardsOnPage = 2;
+        } else {
+            this.cardsOnPage = 3;
+        }
+    }
 
     get numberOfPages() {
-        return this.books.length / 3 - 1;
+        return this.books.length / this.cardsOnPage;
     }
 
     get translateCounter() {
-        return `translateX(-${this.page * 300}%)`;
+        return `translateX(-${(this.page * this.cardsOnPage * 100)}%)`;
     }
 
     translate() {
@@ -28,7 +41,7 @@ export default class HomepageBooks extends LightningElement {
     }
 
     handleRightClick() {
-        if(this.page >= this.numberOfPages) {
+        if(this.page >= this.numberOfPages - 1) {
             return
         }
         this.page += 1;

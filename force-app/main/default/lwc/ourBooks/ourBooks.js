@@ -1,16 +1,18 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
+import { CurrentPageReference } from 'lightning/navigation';
 import getAllBooks from '@salesforce/apex/OurBooksController.getAllBooks';
-import getAllGenres from '@salesforce/apex/OurBooksController.getAllGenres';
 import isGuestUser from '@salesforce/user/isGuest';
 
 export default class OurBooks extends LightningElement {
     books;
-    genres;
+    filteredBooks;
     isGuest = isGuestUser;
     numberOfPages;
     page = 1;
     pagesArray;
     paginationArray;
+    filter = '';
+    searchTerm = '';
 
     get currentPageBooks() {
         return this.pagesArray[this.page - 1];
@@ -20,19 +22,18 @@ export default class OurBooks extends LightningElement {
         getAllBooks()
         .then(result => {
             this.books = result;
-            this.createPagesArray(result);
+            this.filterBooks();
         })
         .catch(error => {
             console.log(error);
         })
+    }
 
-        getAllGenres()
-        .then(result => {
-            this.genres = result;
-        })
-        .catch(error => {
-            console.log(error);
-        })
+    @wire(CurrentPageReference)
+    pageReference( {state} ) {
+        if(state.searchTerm) {
+            this.searchTerm = state.searchTerm;
+        }
     }
 
     createPagesArray(books) {
@@ -48,18 +49,16 @@ export default class OurBooks extends LightningElement {
         this.paginationArray = paginationArray;
     }
 
-    handleFilterEvent(event) {
-        this.createPagesArray(
-            this.books.filter(book => {
-                return book.Genres__c.includes(event.detail);
-            })
-        )
+    filterBooks() {
+       this.createPagesArray(
+        this.books.filter(book => {
+            return [book.Title__c, book.Author__c, book.ISBN__c].some(value => {
+                return value.toString().toLowerCase().includes(this.searchTerm.toLowerCase());
+            }) && book.Genres__c.includes(this.filter);
+        })
+       )
     }
-
-    handleClearFilters() {
-        this.filteredBooks = this.books;
-    }
-
+    
     changeColor() {
         this.template.querySelectorAll(".pagination__number").forEach(item => {
             item.value == this.page ? item.style.backgroundColor = '#F3BC5A' : item.style.backgroundColor = 'white';
@@ -87,5 +86,17 @@ export default class OurBooks extends LightningElement {
             this.page -= 1;
             this.changeColor();
         }
+    }
+
+    handleFilterEvent(event) {
+        console.log(event.detail)
+        this.filter = event.detail;
+        this.filterBooks();
+    }
+
+    handleSearchEvent(event) {
+        console.log(event.detail)
+        this.searchTerm = event.detail;
+        this.filterBooks();
     }
 }
