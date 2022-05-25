@@ -1,5 +1,6 @@
 import { LightningElement, track } from 'lwc';
 import GetCartItems from '@salesforce/apex/CartController.GetCartItems';
+import DeleteAllItemsFromCart from '@salesforce/apex/CartController.DeleteAllItemsFromCart';
 import SubstractQuantity from '@salesforce/apex/CartController.SubstractQuantity';
 import AddQuantity from '@salesforce/apex/CartController.AddQuantity';
 import { NavigationMixin } from 'lightning/navigation';
@@ -7,6 +8,7 @@ import basePath from '@salesforce/community/basePath';
 
 export default class Cart extends NavigationMixin(LightningElement) {
     @track cartItems;
+    isCartEmpty;
 
     connectedCallback() {
         this.getCartItems();
@@ -15,6 +17,7 @@ export default class Cart extends NavigationMixin(LightningElement) {
     getCartItems() {
         GetCartItems()
         .then(result => {
+            this.isCartEmpty = result.length <= 0;
             this.cartItems = result;
         })
     }
@@ -50,6 +53,25 @@ export default class Cart extends NavigationMixin(LightningElement) {
             type: 'standard__webPage',
             attributes: {
                 url: basePath + '/create-order'
+            }
+        })
+    }
+
+    handleClear() {
+        DeleteAllItemsFromCart()
+        .then(() => {
+            this.getCartItems();
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    handleCheckOutOurBooks() {
+        this[NavigationMixin.Navigate]({
+            type: 'comm__namedPage',
+            attributes: {
+                name: 'our_books__c'
             }
         })
     }

@@ -1,4 +1,12 @@
 <template>
+    <template if:true={isToastVisible}>
+        <c-toast
+            message="You added book to cart!"
+            button-text="Continue shopping"
+            ontoastevent={handleToastClose}
+            is-cart-toast="true"
+        ></c-toast>
+    </template>
     <div class="details">
         <div class="book__container">
             <div class="book__image-wrapper">

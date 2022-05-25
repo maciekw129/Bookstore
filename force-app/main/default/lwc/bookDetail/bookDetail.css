@@ -4,6 +4,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
 }
 
 .book__container {
@@ -74,4 +76,18 @@
     cursor: pointer;
     color: #F3BC5A;
     transition: color 0.2s linear;
+}
+
+@media only screen and (max-width: 800px) {
+    .book__container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .book__title {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
 }

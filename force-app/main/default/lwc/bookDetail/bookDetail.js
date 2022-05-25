@@ -6,6 +6,7 @@ import AddItemToCart from '@salesforce/apex/CartController.AddItemToCart';
 export default class BookDetail extends LightningElement {
     book;
     @track counter = 1;
+    isToastVisible = false;
 
     @wire(CurrentPageReference)
     pageReference( {state} ) {
@@ -42,8 +43,15 @@ export default class BookDetail extends LightningElement {
                 bookToAdd: this.book.Id,
                 quantity: this.counter
             })
+            .then(() => {
+                this.isToastVisible = true;
+            })
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    handleToastClose() {
+        this.isToastVisible = false;
     }
 }

@@ -33,6 +33,8 @@ export default class OurBooks extends LightningElement {
     pageReference( {state} ) {
         if(state.searchTerm) {
             this.searchTerm = state.searchTerm;
+        } else if(state.filter) {
+            this.filter = state.filter;
         }
     }
 

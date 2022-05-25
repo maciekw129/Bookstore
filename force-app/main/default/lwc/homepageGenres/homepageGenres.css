@@ -1,0 +1,30 @@
+.genres {
+    width: 100%;
+    background-color: #446083;
+    padding: 2rem;
+}
+
+.genres__title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.genres__items {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.genres__item {
+    background-color: #F3BC5A;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    color: #446083;
+}

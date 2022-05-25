@@ -1,38 +1,53 @@
-.table__container {
+.cart__container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 5rem;
+    padding: 2rem 5rem;
 }
 
-.table__header {
+.cart__title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cart__header {
     font-weight: bold;
 }
 
-.table__row {
+.cart__row {
     border-bottom: 1px solid hsl(0, 0%, 80%);
 }
 
-.table__data {
+.cart__data {
     text-align: center;
     padding: 1rem;
 }
 
-.table__quantity {
+.cart__quantity {
     border: none;
     background: none;
     font-size: 1.5rem;
     transition: color 0.2s linear;
 }
 
-.table__quantity:hover {
+.cart__quantity:hover {
     color: #F3BC5A;
     transition: color 0.2s linear;
 }
 
-.table__button {
-    margin-top: 2rem;
+.buttons__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons__button {
+    margin: 2rem 1rem;
     background-color: transparent;
     border: 1.5px solid #F3BC5A;
     padding: 0.5rem 1rem;
@@ -40,8 +55,30 @@
     transition: background-color 0.2s linear;
 }
 
-.table__button:hover {
+.buttons__button-clear {
+    border-color: red;
+}
+
+.buttons__button:hover {
     cursor: pointer;
     background-color: #F3BC5A;
     transition: background-color 0.2s linear;
+}
+
+.buttons__button-clear:hover {
+    background-color: red;
+}
+
+.empty__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 300px;
+}
+
+.empty__text {
+    font-weight: bold;
+    font-size: 1.5rem;
 }

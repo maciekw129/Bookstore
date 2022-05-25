@@ -1,33 +1,45 @@
 <template>
-    <div class="table__container">
-        <table>
-            <tr class="table__row">
-                <td class="table__data">
-                    <h2 class="table__header">Quantity</h2>
-                </td>
-                <td class="table__data">
-                    <h2 class="table__header">Author</h2>
-                </td>
-                <td class="table__data">
-                    <h2 class="table__header">Title</h2>
-                </td>
-                <td class="table__data">
-                    <h2 class="table__header">ISBN</h2>
-                </td>
-            </tr>
-            <template for:each={cartItems} for:item="item" for:index="index">
-                <tr key={item.Id} class="table__row">
-                    <td class="table__data">
-                        <button class="table__quantity" value={index} onclick={handleAddClick}>+</button>
-                        <p>{item.Quantity__c}</p>
-                        <button class="table__quantity" value={index} onclick={handleSubstractClick}>-</button>
+    <template if:false={isCartEmpty}>
+        <div class="cart__container">
+            <h2 class="cart__title">Your cart</h2>
+            <table>
+                <tr class="cart__row">
+                    <td class="cart__data">
+                        <h2 class="cart__header">Quantity</h2>
                     </td>
-                    <td class="table__data">{item.Book__r.Author__c}</td>
-                    <td class="table__data">{item.Book__r.Title__c}</td>
-                    <td class="table__data">{item.Book__r.ISBN__c}</td>
+                    <td class="cart__data">
+                        <h2 class="cart__header">Author</h2>
+                    </td>
+                    <td class="cart__data">
+                        <h2 class="cart__header">Title</h2>
+                    </td>
+                    <td class="cart__data">
+                        <h2 class="cart__header">ISBN</h2>
+                    </td>
                 </tr>
-            </template>
-        </table>
-        <button class="table__button" onclick={handleComplete}>Go to check out</button>  
-    </div>
+                <template for:each={cartItems} for:item="item" for:index="index">
+                    <tr key={item.Id} class="cart__row">
+                        <td class="cart__data">
+                            <button class="cart__quantity" value={index} onclick={handleAddClick}>+</button>
+                            <p>{item.Quantity__c}</p>
+                            <button class="cart__quantity" value={index} onclick={handleSubstractClick}>-</button>
+                        </td>
+                        <td class="cart__data">{item.Book__r.Author__c}</td>
+                        <td class="cart__data">{item.Book__r.Title__c}</td>
+                        <td class="cart__data">{item.Book__r.ISBN__c}</td>
+                    </tr>
+                </template>
+            </table>
+            <div class="buttons__container">
+                <button class="buttons__button buttons__button-clear" onclick={handleClear}>Clear cart</button>
+                <button class="buttons__button" onclick={handleComplete}>Go to check out</button>
+            </div>  
+        </div>
+    </template>
+    <template if:true={isCartEmpty}>
+        <div class="empty__container">
+            <p class="empty__text">Your cart is empty.</p>
+            <c-button text="Check out our books" onclick={handleCheckOutOurBooks}></c-button>
+        </div>
+    </template>
 </template>
