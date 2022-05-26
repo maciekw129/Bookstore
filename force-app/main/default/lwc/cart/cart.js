@@ -7,8 +7,7 @@ import { NavigationMixin } from 'lightning/navigation';
 import basePath from '@salesforce/community/basePath';
 
 export default class Cart extends NavigationMixin(LightningElement) {
-    @track cartItems;
-    isCartEmpty;
+    @track cartItems = [];
 
     connectedCallback() {
         this.getCartItems();
@@ -17,7 +16,6 @@ export default class Cart extends NavigationMixin(LightningElement) {
     getCartItems() {
         GetCartItems()
         .then(result => {
-            this.isCartEmpty = result.length <= 0;
             this.cartItems = result;
         })
     }

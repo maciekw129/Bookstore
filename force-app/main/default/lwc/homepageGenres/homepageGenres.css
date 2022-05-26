@@ -27,4 +27,13 @@
     padding: 1rem 2rem;
     font-weight: bold;
     color: #446083;
+    width: 150px;
+    margin: 1rem 0;
+}
+
+@media only screen and (max-width:700px) {
+    .genres__items {
+        flex-direction: column;
+        justify-content: center;
+    }
 }

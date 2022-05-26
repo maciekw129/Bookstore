@@ -1,5 +1,5 @@
 <template>
-    <template if:false={isCartEmpty}>
+    <template if:true={cartItems.length}>
         <div class="cart__container">
             <h2 class="cart__title">Your cart</h2>
             <table>
@@ -36,7 +36,7 @@
             </div>  
         </div>
     </template>
-    <template if:true={isCartEmpty}>
+    <template if:false={cartItems.length}>
         <div class="empty__container">
             <p class="empty__text">Your cart is empty.</p>
             <c-button text="Check out our books" onclick={handleCheckOutOurBooks}></c-button>

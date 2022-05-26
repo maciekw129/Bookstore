@@ -4,6 +4,8 @@
             <c-our-books-search
                 onfilterevent={handleFilterEvent}
                 onsearchevent={handleSearchEvent}
+                filter-value={filter}
+                search-value={searchTerm}
             ></c-our-books-search>
             <div class="books__grid">
                 <template for:each={currentPageBooks} for:item="book">

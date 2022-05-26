@@ -1,10 +1,10 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, api } from 'lwc';
 import getAllGenres from '@salesforce/apex/OurBooksController.getAllGenres';
 
 export default class OurBooksSearch extends LightningElement {
     @track genres;
-    filterValue = '';
-    @track searchValue = '';
+    @api filterValue;
+    @api searchValue;
     trues = true;
 
     connectedCallback() {

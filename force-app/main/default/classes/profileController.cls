@@ -2,7 +2,7 @@ public without sharing class profileController {
     @AuraEnabled(cacheable=true)
     public static List<Order__c> getAllOrders() {
         String userId = UserInfo.getUserId();
-        return [SELECT Name, Order_date__c, Order_status__c, (SELECT Id, Quantity__c, Book__r.Title__c, Book__r.ISBN__c, Book__r.Author__c FROM Order_Items__r) FROM Order__c WHERE CreatedById =: userId];
+        return [SELECT Name, Order_date__c, Order_status__c, (SELECT Id, Quantity__c, Book__r.Title__c, Book__r.ISBN__c, Book__r.Author__c FROM Order_Items__r) FROM Order__c WHERE CreatedById =: userId ORDER BY Order_date__c DESC];
     }
 
     @AuraEnabled
@@ -28,5 +28,11 @@ public without sharing class profileController {
         );
 
         update userContact;
-    }      
+    }
+    
+    @AuraEnabled
+    public static Contact getShippingAddress(){
+        Id contactId = Utilities.getLoggedContactId();
+        return [SELECT City__c, Postal_code__c, Street__c, Apartment__c, Phone FROM Contact WHERE Id=:contactId];
+    }
 }

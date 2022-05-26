@@ -6,6 +6,19 @@
     padding: 2rem;
 }
 
+.adress__wrapper {
+    box-shadow: 0px 0px 0.5rem lightgray;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
 .address__form {
     display: flex;
     flex-direction: column;
@@ -15,11 +28,7 @@
 }
 
 .address__input {
-    background: none;
-    border: 1px solid #446083;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    margin: 0.75rem 0;
+    margin: 1rem 0;
 }
 
 .address__button {
@@ -43,8 +52,14 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    color: green;
+    margin-top: 2rem;
 }
 
-.success__header {
-    color: green;
+.success__text {
+    padding: 2rem;
+}
+
+.success__button {
+    color: black;
 }

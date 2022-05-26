@@ -45,6 +45,10 @@
     --sds-c-icon-color-foreground-default: #F3BC5A;
 }
 
+.books__button:disabled {
+    visibility: hidden;
+}
+
 
 .books__container {
     width: 90%;

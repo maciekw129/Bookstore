@@ -48,4 +48,37 @@ public with sharing class OurBooksController {
     public static List<Order_item__c> getMostPopularCategories(){
         return [SELECT book__r.genres__c FROM Order_item__c];
     }
+
+    @AuraEnabled
+    public static List<book__c> getSimilarBooks(Id bookId){
+        book__c book = [SELECT genres__c, Author__c FROM book__c WHERE Id=: bookId];
+        List<book__c> theSameAuthor = [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Number_of_copies_sold__c FROM book__c WHERE Author__c =: book.Author__c AND Id !=: bookId LIMIT 3];
+        return theSameAuthor;
+        // String genre = book.Genres__c.split(';')[0];
+        // Integer numberOfRestBooks = 6 - theSameAuthor.size();
+        // List<book__c> theSameGenre = [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Number_of_copies_sold__c FROM book__c WHERE Genres__c includes (:genre) AND Author__c !=: book.Author__c LIMIT :numberOfRestBooks];
+        
+        // List<book__c> combinedList = new List<Book__c>();
+        // combinedList.addAll(theSameAuthor);
+        // combinedList.addAll(theSameGenre);
+        // return combinedList;
+    }
+
+    @AuraEnabled
+    public static void createComment(Id bookId, String text, Integer rate){
+        Id userId = Utilities.getLoggedContactId();
+        Comment__c newComment = new Comment__c(
+            book__c = bookId,
+            contact__c = userId,
+            rate__c = rate,
+            text__c = text
+        );
+
+        insert newComment;
+    }
+
+    @AuraEnabled
+    public static List<comment__c> getBookComments(Id bookId){
+        return [SELECT text__c, contact__c, rate__c FROM Comment__c WHERE book__c =: bookId];
+    }
 }

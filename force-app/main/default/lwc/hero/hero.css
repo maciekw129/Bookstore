@@ -25,7 +25,11 @@
 
 .hero__text {
     padding: 2rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
+}
+
+.book__colored {
+    color: #F3BC5A;
 }

@@ -1,63 +1,62 @@
 <template>
     <template if:false={isSuccess}>
         <div class="address">
-            <h2 class="address__header">Enter your shipping address:</h2>
-            <form class="address__form" onsubmit={handleSubmit}>
-                <input
-                    class="address__input"
-                    title="City"
-                    name="city"
-                    placeholder="city"
-                    value={address.city}
-                    onchange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="address__input"
-                    title="Postal Code"
-                    name="postalCode"
-                    placeholder="postal code"
-                    value={address.postalCode}
-                    onchange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="address__input"
-                    title="Street"
-                    name="street"
-                    placeholder="street"
-                    value={address.street}
-                    onchange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="address__input"
-                    title="Apartment"
-                    name="apartment"
-                    placeholder="apartment"
-                    value={address.apartment}
-                    onchange={handleChange}
-                    type="text"
-                />
-                <input
-                    class="address__input"
-                    title="Phone"
-                    name="phone"
-                    placeholder="phone"
-                    value={address.phone}
-                    onchange={handleChange}
-                    type="phone"
-                />
-                <button
-                    class="address__button"
-                    type="submit" 
-                >Create order</button>
-            </form>
+            <div class="adress__wrapper">
+                <h2 class="title">Enter your shipping address</h2>
+                <form class="address__form" onsubmit={handleSubmit}>
+                    <c-text-input
+                        class="address__input"
+                        input-value={address.City__c}
+                        input-name="city"
+                        input-label="City:"
+                        input-placeholder="enter city here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <c-text-input
+                        class="address__input"
+                        input-value={address.Postal_code__c}
+                        input-name="postalCode"
+                        input-label="Postal code:"
+                        input-placeholder="enter postal code here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <c-text-input
+                        class="address__input"
+                        input-value={address.Street__c}
+                        input-name="street"
+                        input-label="Street:"
+                        input-placeholder="enter street here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <c-text-input
+                        class="address__input"
+                        input-value={address.Apartment__c}
+                        input-name="apartment"
+                        input-label="Apartment:"
+                        input-placeholder="enter apartment here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <c-text-input
+                        class="address__input"
+                        input-value={address.Phone}
+                        input-name="phone"
+                        input-label="Phone:"
+                        input-placeholder="enter phone here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <button
+                        class="address__button"
+                        type="submit" 
+                    >Create order</button>
+                </form>
+            </div>
         </div>
     </template>
     <template if:true={isSuccess}>
         <div class="success">
-            <h2 class="success__header">You managed to place an order!</h2>
+            <h2 class="title">Congratulations!</h2>
+            <p class="success__text">You managed to place an order! Our team will now pack your books as fast as possible, start preparing Your mind for reading awesome stories.</p>
+            <c-button class="success__button" text="Go to home page" onclick={handleHomeNavigate}></c-button>
         </div>
     </template>
 </template>

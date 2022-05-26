@@ -1,0 +1,14 @@
+<template>
+    <div>
+        <h2 class="comments__container">Comments</h2>
+        <template if:true={comments}>
+            <template for:each={comments} for:item="comment">
+                <c-comment key={comment.Id}></c-comment>
+            </template>
+        </template>
+        <template if:false={comments}>
+            <p>This book doesn't have any comments yet.</p>
+        </template>
+        
+    </div>
+</template>

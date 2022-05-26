@@ -2,7 +2,7 @@
     <div class="books">
         <h2 class="books__title">{title}</h2>
         <div class="books__container-wrapper">
-            <button class="books__button" onclick={handleLeftClick}>
+            <button class="books__button" onclick={handleLeftClick} disabled={isLeftButtonDisabled}>
                 <lightning-icon
                             size="small"
                             class="books__icon" 
@@ -16,13 +16,14 @@
                     <c-book-card class="books__book" key={book.Id} book={book}></c-book-card>
                 </template>
             </div>
-            <button class="books__button" onclick={handleRightClick}>
+            <button class="books__button" onclick={handleRightClick} disabled={isRightButtonDisabled}>
                 <lightning-icon
                             size="small"
                             class="books__icon" 
                             title="Go right" 
                             icon-name="utility:right" 
                             alternative-text="Go right"
+                            disabled
                 ></lightning-icon>
             </button>
         </div>

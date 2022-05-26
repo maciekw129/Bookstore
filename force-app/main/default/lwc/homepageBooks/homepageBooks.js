@@ -18,6 +18,14 @@ export default class HomepageBooks extends LightningElement {
         }
     }
 
+    get isLeftButtonDisabled() {
+        return this.page <= 0;
+    }
+
+    get isRightButtonDisabled() {
+        return this.page >= this.numberOfPages - 1;
+    }
+
     get numberOfPages() {
         return this.books.length / this.cardsOnPage;
     }

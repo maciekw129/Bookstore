@@ -40,7 +40,7 @@
 .profile__data-container {
     display: grid;
     padding: 1rem;
-    gap: 2rem 2rem;
+    gap: 4rem 4rem;
     width: 100%;
     grid-template: auto / 1fr 1fr;
     justify-content: center;
