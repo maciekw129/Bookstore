@@ -1,0 +1,16 @@
+<template>
+    <div>
+        <template for:each={ratingArray} for:item="rate">
+            <lightning-icon
+                key={rate}
+                class="rating__icon" 
+                title="Star" 
+                icon-name="utility:favorite" 
+                size="x-small"
+                alternative-text="Doc image"
+                value={rate}
+                onclick={handleClick}
+            ></lightning-icon>
+        </template>
+    </div>
+</template>

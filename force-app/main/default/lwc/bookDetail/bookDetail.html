@@ -1,4 +1,5 @@
 <template>
+    <c-bread-crumb genres={genres} book-title={book.Title__c}></c-bread-crumb>
     <template if:true={isToastVisible}>
         <c-toast
             message="You added book to cart!"
@@ -23,17 +24,22 @@
                     <p class="book__margin">{book.Description__c}</p>
                     <div class="book__margin">
                         <p class={AvailabilityStyle}>{book.Availability__c}</p>
-                        <div class="counter">
-                            <c-button text="Add to cart" onclick={handleCartClick}></c-button>
+                        <template if:false={isGuest}>
                             <div class="counter">
-                                <p class="counter__button" onclick={decrement}>-</p><p>{counter}</p><p class="counter__button" onclick={increment}>+</p>
+                                <c-button text="Add to cart" onclick={handleCartClick}></c-button>
+                                <div class="counter">
+                                    <p class="counter__button" onclick={decrement}>-</p><p>{counter}</p><p class="counter__button" onclick={increment}>+</p>
+                                </div>
                             </div>
-                        </div>
+                        </template>
+                        <template if:true={isGuest}>
+                            <p>You must sign in to add to cart.</p>
+                        </template>
                     </div>
                 </div>  
             </div>
         </div>
     </div>
-    <c-homepage-books title="Other books by this author" books={sameAuthorBooks}></c-homepage-books>
+    <c-homepage-books title="Similar books" books={sameAuthorBooks}></c-homepage-books>
     <c-comment-section book={book}></c-comment-section>
 </template>

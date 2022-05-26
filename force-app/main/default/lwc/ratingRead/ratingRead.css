@@ -1,0 +1,7 @@
+.rating__icon {
+    --sds-c-icon-color-foreground-default: gray;
+}
+
+.rating__star-yellow {
+    --sds-c-icon-color-foreground-default: #fada5e;
+}

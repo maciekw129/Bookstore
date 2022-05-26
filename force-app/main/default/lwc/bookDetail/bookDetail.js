@@ -3,12 +3,14 @@ import { CurrentPageReference } from 'lightning/navigation';
 import getSpecificBook from '@salesforce/apex/OurBooksController.getSpecificBook';
 import AddItemToCart from '@salesforce/apex/CartController.AddItemToCart';
 import getSimilarBooks from '@salesforce/apex/OurBooksController.getSimilarBooks';
+import isGuestUser from '@salesforce/user/isGuest';
 
 export default class BookDetail extends LightningElement {
     book;
     @track counter = 1;
     isToastVisible = false;
     sameAuthorBooks;
+    isGuest = isGuestUser;
 
     @wire(CurrentPageReference)
     pageReference( {state} ) {
@@ -22,7 +24,7 @@ export default class BookDetail extends LightningElement {
                     bookId: this.book.Id
                 }) 
                 .then(result => {
-                    console.log(`result = ${result}`);
+                    console.log(result);
                     this.sameAuthorBooks = result;
                 }) 
             })

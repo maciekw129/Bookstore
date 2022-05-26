@@ -1,14 +1,35 @@
 <template>
-    <div>
-        <h2 class="comments__container">Comments</h2>
-        <template if:true={comments}>
-            <template for:each={comments} for:item="comment">
-                <c-comment key={comment.Id}></c-comment>
+    <div class="comments">
+        <h2 class="comments__title">Reviews</h2>
+        <div class="comments__container">
+            <template if:true={comments.length}>
+                <template for:each={comments} for:item="comment">
+                    <c-comment
+                        key={comment.Id} 
+                        text={comment.Text__c} 
+                        author-id={comment.Contact__c}
+                        rate={comment.Rate__c}
+                    ></c-comment>
+                </template>
             </template>
-        </template>
-        <template if:false={comments}>
-            <p>This book doesn't have any comments yet.</p>
-        </template>
-        
+            <template if:false={comments.length}>
+                <p class="comments__no-comments">This book doesn't have any comments yet.</p>
+            </template>
+            <template if:false={isGuest}>
+                <div class="rate__container">
+                    <p class="rate__text">Your rate: </p>
+                    <c-rating onrating={handleSetRating}></c-rating>
+                </div>
+                <label class="comment__label" for="review">Enter your review:</label>
+                <textarea
+                    class="comment__area"
+                    name="review"
+                    rows=""
+                    placeholder="Tell us something about this book..."
+                    oninput={handleCommentChange}
+                ></textarea>
+                <c-button text="Send" onclick={handleCreateComment}></c-button>
+            </template>
+        </div>
     </div>
 </template>

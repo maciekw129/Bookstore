@@ -1,3 +1,9 @@
 <template>
-    
+    <div class="comment__container">
+        <div class="comment__header">
+            <h2 class="comment__author">{author.FirstName}</h2>
+            <c-rating-read rating={rate} ></c-rating-read>
+        </div>
+        <p class="comment__text">{text}</p>
+    </div>
 </template>

@@ -12,6 +12,11 @@ public without sharing class profileController {
     }
 
     @AuraEnabled
+    public static List<Contact> getSpecificUserDetails(Id userId){
+        return [SELECT Id, FirstName, LastName FROM Contact WHERE Id=: userId];
+    }
+
+    @AuraEnabled
     public static void updateUserDetails(String FirstName, String LastName, String Phone, String City, String PostalCode, String Street, String Apartment){
 
         Id contactId = Utilities.getLoggedContactId();

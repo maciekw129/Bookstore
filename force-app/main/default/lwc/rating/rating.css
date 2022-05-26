@@ -1,0 +1,11 @@
+.rating__icon {
+    --sds-c-icon-color-foreground-default: gray;
+}
+
+.rating__icon:hover {
+    cursor: pointer;
+}
+
+.rating__star-yellow {
+    --sds-c-icon-color-foreground-default: #fada5e;
+}
