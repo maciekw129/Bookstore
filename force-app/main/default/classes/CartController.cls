@@ -17,10 +17,11 @@ public without sharing class CartController {
                     return;
                 }
                 cartItem.quantity__c += quantity;
-                update CartItems;
                 return;
             }
         }
+
+        update CartItems;
             
         Cart_item__c NewCartItem = new Cart_item__c(
         	Contact__c = userId,
@@ -40,7 +41,7 @@ public without sharing class CartController {
     @AuraEnabled
     public static List<Cart_item__c> GetCartItems() {
         Id userId = Utilities.getLoggedContactId();
-        return [SELECT Book__r.Author__c, Book__r.Title__c, Book__r.ISBN__c, Quantity__c FROM Cart_Item__c WHERE Contact__c =: UserId];
+        return [SELECT Book__r.Author__c, Book__r.Title__c, Book__r.Prize__c, Prize_sum__c, Quantity__c FROM Cart_Item__c WHERE Contact__c =: UserId];
     }
     
     @AuraEnabled
@@ -68,8 +69,11 @@ public without sharing class CartController {
     public static void CreateOrder(String city, String postalCode, String street, String apartment, String phone) {
         Id userId = Utilities.getLoggedContactId();
         
-        List<Cart_item__c> cartItems = [SELECT Id, Book__c, Quantity__c FROM Cart_item__c WHERE Contact__c =: userId];
+        List<Cart_item__c> cartItems = [SELECT Id, Book__c, Quantity__c, Prize_sum__c FROM Cart_item__c WHERE Contact__c =: userId];
         
+        List<Order_item__c> orderItems = new List<Order_item__c>();
+        Decimal totalCost = 0;
+
         Order__c order = new Order__c(
         	Order_status__c= 'New',
             Order_date__c= DateTime.now(),
@@ -77,20 +81,25 @@ public without sharing class CartController {
             Postal_code__c= postalCode,
             Street__c= street,
             Apartment__c= apartment,
-            Phone__c= phone
+            Phone__c= phone,
+            Total_cost__c= totalCost
         );
         insert order;
         
-        List<Order_item__c> orderItems = new List<Order_item__c>();
-        
         for(Cart_item__c item : cartItems) {
+            totalCost += item.Prize_sum__c;
             Order_item__c orderItem = new Order_Item__c(
             	Book__c = item.Book__c,
                 Quantity__c = item.Quantity__c,
-                Order__c = order.Id
+                Order__c = order.Id,
+                Cost__c = item.Prize_sum__c
             );
             orderItems.add(orderItem);
         }
+
+        order.Total_cost__c = totalCost;
+        update order;
+        
         
         insert orderItems;
         delete cartItems;

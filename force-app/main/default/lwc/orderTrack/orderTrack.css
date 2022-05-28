@@ -1,10 +1,10 @@
-.container {
+.track {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.line {
+.track__line {
     margin-top: 2rem;
     margin-bottom: 4rem;
     border: 2px solid lightgray;
@@ -19,7 +19,7 @@
     z-index: 99;
 }
 
-.line::after {
+.track__line::after {
     content: '';
     width: 50%;
     height: 0px;
@@ -27,7 +27,7 @@
     position: absolute;
 }
 
-.dot {
+.track__dot {
     width: 20px;
     height: 20px;
     background-color: lightgray;
@@ -38,27 +38,27 @@
     z-index: 100;
 }
 
-.label {
+.track__label {
     transform: translateY(2rem);
     white-space: nowrap;
 }
 
-.realized_dot {
+.track__dot--realized {
     background-color: lightgreen;
 }
 
-.half_realized_track::after {
+.track__half-realized::after {
     border-color: lightgreen;
 }
 
-.realized_track {
+.track__dot--realized {
     border-color: lightgreen;
 }
 
-.red_line {
+.track__line--red {
     border-color: red;
 }
 
-.red_dot {
+.track__dot--red {
     background-color: red;
 }

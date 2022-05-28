@@ -20,8 +20,9 @@
                         <p class="card__genre" key={index}>{genre}</p>
                     </template>
                 </div>
-                <div>
+                <div class="card__shopping">
                     <template if:true={isBookAvailable}>
+                        <p>{book.Prize__c}$</p>
                         <lightning-icon
                             class="card__icon" 
                             title="Add to cart" 

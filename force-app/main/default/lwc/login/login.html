@@ -1,0 +1,25 @@
+<template>
+    <div class="login">
+        <div class="login__wrapper">
+            <h2 class="login__title">Sign In</h2>
+            <form class="login__form" onsubmit={handleSubmit}>
+                    <c-text-input
+                        class="login__input"
+                        input-label="E-mail:"
+                        input-name="email"
+                        input-placeholder="enter email here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <c-text-input
+                        class="login__input"
+                        input-label="Password:"
+                        input-name="password"
+                        input-type="password"
+                        input-placeholder="enter password here..."
+                        onvaluesend={handleValueSend}
+                    ></c-text-input>
+                    <c-button class="login__button" text="Log In" button-type="submit"></c-button>
+            </form>
+        </div>
+    </div>
+</template>

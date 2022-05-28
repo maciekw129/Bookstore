@@ -4,13 +4,12 @@ import getShippingAddress from '@salesforce/apex/profileController.getShippingAd
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class ShippingAddress extends NavigationMixin(LightningElement) {
-    address;
+    address = [];
     isSuccess = false;
 
     connectedCallback() {
         getShippingAddress()
         .then(result => {
-            console.log(result)
             this.address = result;
         })
         .catch(error => {
@@ -19,8 +18,8 @@ export default class ShippingAddress extends NavigationMixin(LightningElement) {
     }
 
     handleValueSend(event) {
-        this.userDetails = {
-            ...this.userDetails,
+        this.address = {
+            ...this.address,
             [event.detail.name]: event.detail.value
         }
     }

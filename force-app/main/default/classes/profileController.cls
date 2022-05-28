@@ -40,4 +40,21 @@ public without sharing class profileController {
         Id contactId = Utilities.getLoggedContactId();
         return [SELECT City__c, Postal_code__c, Street__c, Apartment__c, Phone FROM Contact WHERE Id=:contactId];
     }
+
+    @AuraEnabled
+    public static void register(String email, String firstName, String lastName, String password){
+        User user = new User();
+        user.Email = email;
+        user.FirstName = firstName;
+        user.LastName = lastName;
+        user.Username = email;
+        user.CommunityNickName = user.Username;
+
+    Id userId = Site.createExternalUser(user, null, password);
+    }
+
+    @AuraEnabled
+    public static String login(String email, String password){
+        return Site.login(email, password, '/').getUrl();
+}
 }

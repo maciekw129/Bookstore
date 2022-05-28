@@ -4,13 +4,13 @@ import getAllBooks from '@salesforce/apex/OurBooksController.getAllBooks';
 import isGuestUser from '@salesforce/user/isGuest';
 
 export default class OurBooks extends LightningElement {
-    books;
-    filteredBooks;
+    books = [];
+    filteredBooks = [];
     isGuest = isGuestUser;
-    numberOfPages;
+    numberOfPages = 0;
     page = 1;
-    pagesArray;
-    paginationArray;
+    pagesArray = [];
+    paginationArray = [];
     filter = '';
     searchTerm = '';
 
@@ -91,13 +91,11 @@ export default class OurBooks extends LightningElement {
     }
 
     handleFilterEvent(event) {
-        console.log(event.detail)
         this.filter = event.detail;
         this.filterBooks();
     }
 
     handleSearchEvent(event) {
-        console.log(event.detail)
         this.searchTerm = event.detail;
         this.filterBooks();
     }

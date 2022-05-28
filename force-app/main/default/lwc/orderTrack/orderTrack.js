@@ -4,34 +4,38 @@ export default class OrderTrack extends LightningElement {
     @api status;
 
     get newStyle() {
-        return this.status === "Canceled" ? 'dot red_dot' : 'dot realized_dot';
+        return `track__dot ${this.status === "Canceled ? track__dot--red : track__dot--realized"}`;
     }
 
     get inProgressStyle() {
         if(this.status === 'Canceled') {
-            return 'dot red_dot'
+            return 'track__dot track__dot--red'
+        } else if(this.status === 'Realized') {
+            return 'track__dot track__dot--realized'
         } else {
-            return this.status === 'New' ? 'dot' : 'realized_dot dot';
+            return 'track__dot'
         }
     }
 
     get realizedStyle() {
         if(this.status === 'Canceled') {
-            return 'dot red_dot'
+            return 'track__dot track__dot--red'
+        } else if(this.status === 'Realized') {
+            return 'track__dot track__dot--realized'
         } else {
-            return this.status === 'Realized' ? 'realized_dot dot' : 'dot';
+            return 'track__dot'
         }
     }
 
     get lineStyle() {
         if (this.status === 'In progress') {
-            return 'line half_realized_track';
+            return 'track__line track__half-realized';
         } else if (this.status === 'Realized') {
-            return 'line realized_track'
+            return 'track__line track__dot--realized'
         } else if (this.status === 'Canceled') {
-            return 'line red_line'; 
+            return 'track__line track__line--red'; 
         } else {
-            return 'line';
+            return 'track__line';
         }
     }
 

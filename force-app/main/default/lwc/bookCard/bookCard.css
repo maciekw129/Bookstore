@@ -42,6 +42,13 @@
     font-size: 0.9rem;
 }
 
+.card__shopping {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .card__icon {
     transition: box-shadow 0.2s linear;
     padding: 0.5rem;

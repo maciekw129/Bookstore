@@ -2,16 +2,14 @@ import { LightningElement } from 'lwc';
 import getAllOrders from '@salesforce/apex/profileController.getAllOrders';
 
 export default class YourOrders extends LightningElement {
-    orders;
+    orders = [];
 
     connectedCallback() {
         getAllOrders()
         .then(result => {
-            console.log(result);
             this.orders = result.map(order => {
                 return {...order, Order_date__c: new Date(order.Order_date__c).toLocaleDateString() };
             });
-            console.log(JSON.stringify(this.orders));
         })
         .catch(error => {
             console.log(error)

@@ -1,5 +1,5 @@
-.books__container {
-    height: calc(100vh - 64px);
+.books {
+    min-height: calc(100vh - 64px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

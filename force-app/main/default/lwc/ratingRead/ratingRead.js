@@ -7,7 +7,6 @@ export default class RatingRead extends LightningElement {
     renderedCallback() {
         console.log('hej')
         if(this.rating) {
-            console.log(this.rating)
             this.color(this.rating);
         } 
     }

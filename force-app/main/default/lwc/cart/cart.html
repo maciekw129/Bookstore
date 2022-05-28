@@ -1,6 +1,6 @@
 <template>
     <template if:true={cartItems.length}>
-        <div class="cart__container">
+        <div class="cart">
             <h2 class="cart__title">Your cart</h2>
             <table>
                 <tr class="cart__row">
@@ -14,7 +14,7 @@
                         <h2 class="cart__header">Title</h2>
                     </td>
                     <td class="cart__data">
-                        <h2 class="cart__header">ISBN</h2>
+                        <h2 class="cart__header">Prize</h2>
                     </td>
                 </tr>
                 <template for:each={cartItems} for:item="item" for:index="index">
@@ -26,18 +26,24 @@
                         </td>
                         <td class="cart__data">{item.Book__r.Author__c}</td>
                         <td class="cart__data">{item.Book__r.Title__c}</td>
-                        <td class="cart__data">{item.Book__r.ISBN__c}</td>
+                        <td class="cart__data">{item.Prize_sum__c}$</td>
                     </tr>
                 </template>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{prizeSum}</td>
+                </tr>
             </table>
-            <div class="buttons__container">
+            <div class="buttons">
                 <button class="buttons__button buttons__button-clear" onclick={handleClear}>Clear cart</button>
                 <button class="buttons__button" onclick={handleComplete}>Go to check out</button>
             </div>  
         </div>
     </template>
     <template if:false={cartItems.length}>
-        <div class="empty__container">
+        <div class="empty">
             <p class="empty__text">Your cart is empty.</p>
             <c-button text="Check out our books" onclick={handleCheckOutOurBooks}></c-button>
         </div>

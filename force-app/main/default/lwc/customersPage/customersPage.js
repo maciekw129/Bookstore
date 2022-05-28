@@ -16,10 +16,11 @@ export default class CustomersPage extends LightningElement {
         getCustomers()
         .then((result) => {
            this.customers = result;
-           this.errors = undefined; 
-        }).catch((e) => {
-            this.customers = undefined;
-            this.errors = e;
+           this.errors = null; 
+        })
+        .catch((error) => {
+            this.customers = null;
+            this.errors = error;
         })
     }
 

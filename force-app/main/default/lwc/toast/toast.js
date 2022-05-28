@@ -2,8 +2,8 @@ import { LightningElement, api } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class Toast extends NavigationMixin(LightningElement) {
-    @api buttonText;
-    @api message;
+    @api buttonText = '';
+    @api message = '';
     @api isCartToast = false;
 
     handleClick() {

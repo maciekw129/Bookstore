@@ -16,16 +16,16 @@
     border-radius: 50%;
 }
 
-.loading__dot-one {
+.loading__dot--one {
     animation: 1s infinite alternate loading;
 }
 
-.loading__dot-two {
+.loading__dot--two {
     animation: 1s infinite alternate loading;
     animation-delay: 0.5s;
 }
 
-.loading__dot-three {
+.loading__dot--three {
     animation: 1s infinite alternate loading;
     animation-delay: 1s;
 }

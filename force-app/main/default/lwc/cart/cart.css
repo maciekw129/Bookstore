@@ -1,7 +1,6 @@
-.cart__container {
+.cart {
+    min-height: calc(100vh - 64px - 24px);
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     padding: 2rem 5rem;
 }
@@ -39,7 +38,7 @@
     transition: color 0.2s linear;
 }
 
-.buttons__container {
+.buttons {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -69,16 +68,19 @@
     background-color: red;
 }
 
-.empty__container {
+.empty {
+    min-height: calc(100vh - 64px - 24px);
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     height: 300px;
+    transform: translateY(-64px)
 }
 
 .empty__text {
     font-weight: bold;
     font-size: 1.5rem;
+    padding: 0.75rem;
 }

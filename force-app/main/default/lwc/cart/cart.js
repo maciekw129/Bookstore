@@ -8,6 +8,7 @@ import basePath from '@salesforce/community/basePath';
 
 export default class Cart extends NavigationMixin(LightningElement) {
     @track cartItems = [];
+    prizeSum;
 
     connectedCallback() {
         this.getCartItems();
@@ -17,8 +18,23 @@ export default class Cart extends NavigationMixin(LightningElement) {
         GetCartItems()
         .then(result => {
             this.cartItems = result;
+            console.log(result)
+            this.reduc();
         })
     }
+
+    reduc() {
+        console.log(this.cartItems.reduce((prev, curr) => {
+            return prev + curr.Prize_sum__c;
+        }))
+    }
+
+    get totalPrize() {
+        return this.cartItems.reduce((previous, current) => {
+            return previous + current.Prize_sum__c
+        })
+    }
+    
 
     handleSubstractClick(event) {
         const index = event.target.value;

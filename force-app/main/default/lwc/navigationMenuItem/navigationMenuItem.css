@@ -1,10 +1,10 @@
-.navigation__item {
+.navigation-item {
     color: white;
     text-decoration: none;
     transition: color 0.2s linear;
 }
 
-.navigation__item:hover {
+.navigation-item:hover {
     color: #F3BC5A;
     transition: color 0.2s linear;
     cursor: pointer;

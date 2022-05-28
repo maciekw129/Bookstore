@@ -40,11 +40,11 @@ export default class OrderStatus extends LightningElement {
     }
 
     get isCancelButtonDisabled() {
-        return this.status === 'Canceled' ? true : false;
+        return this.status === 'Canceled';
     }
 
      get isNextStatusButtonDisabled() {
-        return this.status === 'Realized' ? true : this.status === 'Canceled' ? true : false;
+        return this.status === 'Realized' ? true : this.status === 'Canceled';
     }
 
     handleClick(event) {

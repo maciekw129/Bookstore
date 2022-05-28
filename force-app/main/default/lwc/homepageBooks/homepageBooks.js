@@ -1,8 +1,8 @@
 import { LightningElement, api } from 'lwc';
 
 export default class HomepageBooks extends LightningElement {
-    @api title;
-    @api books;
+    @api title = '';
+    @api books = [];
     page = 0;
     cardsOnPage;
 

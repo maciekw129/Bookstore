@@ -4,7 +4,7 @@ import AddItemToCart from '@salesforce/apex/CartController.AddItemToCart';
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class BookCard extends NavigationMixin(LightningElement) {
-    @api book;
+    @api book = {};
     isGuestUser = isGuestUser;
     isToastVisible = false;
 

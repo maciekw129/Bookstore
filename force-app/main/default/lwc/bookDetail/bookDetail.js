@@ -6,10 +6,10 @@ import getSimilarBooks from '@salesforce/apex/OurBooksController.getSimilarBooks
 import isGuestUser from '@salesforce/user/isGuest';
 
 export default class BookDetail extends LightningElement {
-    book;
+    book = {};
     @track counter = 1;
     isToastVisible = false;
-    sameAuthorBooks;
+    sameAuthorBooks = [];
     isGuest = isGuestUser;
 
     @wire(CurrentPageReference)
@@ -24,20 +24,24 @@ export default class BookDetail extends LightningElement {
                     bookId: this.book.Id
                 }) 
                 .then(result => {
-                    console.log(result);
                     this.sameAuthorBooks = result;
                 }) 
             })
-
         }
     }
 
-    connectedCallback() {
-        
+    get bookAvailability() {
+        return this.book.Availability__c === 'Temporarily unavailable';
     }
 
     get AvailabilityStyle() {
-        return this.book.Availability__c === 'Available' ? 'book__availability book__availability-available' : this.book.Availability__c === 'Temporarily unavailable' ? 'book__availability book__availability-unavailable' : 'book__availability book__availability-little' ;
+        if(this.book.Availability__c === 'Available') {
+            return 'book__availability book__availability-available'
+        } else if(this.book.Availability__c === 'Temporarily unavailable') {
+            return 'book__availability book__availability-unavailable'
+        } else {
+            return 'book__availability book__availability-little'
+        }
     }
 
     increment() {

@@ -1,10 +1,11 @@
 import { LightningElement, api } from 'lwc';
 
 export default class TextInput extends LightningElement {
-    @api inputLabel;
-    @api inputName;
-    @api inputPlaceholder;
+    @api inputLabel = '';
+    @api inputName = '';
+    @api inputPlaceholder = '';
     @api inputValue = '';
+    @api inputType = 'text'
 
     connectedCallback() {
         return this.inputValue === undefined ? this.inputValue = '' : null

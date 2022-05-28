@@ -5,7 +5,7 @@ import updateUserDetails from '@salesforce/apex/profileController.updateUserDeta
 export default class Profile extends LightningElement {
     isAboutYouPageVisible = true;
     isYourOrdersPageVisible = false;
-    userDetails;
+    userDetails = [];
     isToastVisible = false;
 
     connectedCallback() {

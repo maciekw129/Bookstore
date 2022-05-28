@@ -4,8 +4,8 @@ import getBookComments from '@salesforce/apex/OurBooksController.getBookComments
 import isGuestUser from '@salesforce/user/isGuest';
 
 export default class CommentSection extends LightningElement {
-    @api book;
-    @track comments;
+    @api book = {};
+    @track comments = [];
     isGuest = isGuestUser;
     comment = '';
     rating = null;

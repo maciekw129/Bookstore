@@ -1,3 +1,9 @@
 <template>
-    <p><a>our-books</a>&gt;<a>{}</a>&gt;<a>{bookTitle}</a></p>
+    <div class="breadcrumb">
+        <a class="breadcrumb__link" onclick={handleOurBooksNavigate}>Our books</a><span class="breadcrumb__arrow"> &gt; </span>
+        <template for:each={genres} for:item="genre">
+            <span key={genre}><a class="breadcrumb__link" onclick={handleGenreNavigate}>{genre}</a><span class="breadcrumb__arrow"> &gt; </span></span>
+        </template>
+        <p class="breadcrumb__title"> {bookTitle}</p>
+    </div>
 </template>

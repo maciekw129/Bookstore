@@ -1,5 +1,5 @@
-.comment__container {
-    width: 500px;
+.comment {
+    width: 50%;
     padding: 2rem 3.5rem;
     background-color: hsl(0, 0%, 95%);
     margin: 1.5rem 0;
@@ -18,4 +18,16 @@
 
 .comment__text {
     padding: 1rem 0;
+}
+
+@media only screen and (max-width: 560px) {
+    .comment__container{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .comment__container{
+        width: 60%;
+    }
 }
