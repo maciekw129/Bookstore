@@ -1,10 +1,10 @@
 <template>
     <div class="home">
         <c-hero></c-hero>
-        <c-homepage-books title="Our Best Sellers" books={bestSellers}></c-homepage-books>
-        <c-homepage-books title="The Newest books" books={newest}></c-homepage-books>
-        <c-homepage-genres></c-homepage-genres>
-        <c-homepage-books title="Crime" books={crimeBooks}></c-homepage-books>
-        <c-homepage-books title="Fantasy" books={fantasyBooks}></c-homepage-books>
+        <c-homepage-books title={bestsellersText} books={bestSellers}></c-homepage-books>
+        <c-homepage-books title={newestBooksText} books={newest}></c-homepage-books>
+        <c-homepage-genres title={categoriesText}></c-homepage-genres>
+        <c-homepage-books title={crimeText} books={crimeBooks}></c-homepage-books>
+        <c-homepage-books title={fantasyText} books={fantasyBooks}></c-homepage-books>
     </div>
 </template>

@@ -7,6 +7,7 @@ export default class Login extends NavigationMixin(LightningElement) {
         email: '',
         password: '',
     }
+    error = ' ';
 
     handleValueSend(event) {
         this.value = {
@@ -25,6 +26,7 @@ export default class Login extends NavigationMixin(LightningElement) {
         })
         .catch(error => {
             console.log(error)
+            this.error = error.body.message;
         })
     }
 }

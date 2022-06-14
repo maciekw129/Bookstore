@@ -77,7 +77,12 @@
 }
 
 .profile__button {
+    margin: 0 0.5rem;
     margin-bottom: 2rem
+}
+
+.profile__button-container {
+    margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 750px) {

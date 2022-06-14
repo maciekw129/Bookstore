@@ -1,11 +1,39 @@
 .footer {
+    position: relative;
+    height: 22.5rem;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
     background-color: #446083;
+    padding: 3.5rem 0;
+}
+
+.footer__copyright, .footer__arrow {
+    color: #F3BC5A;
 }
 
 .footer__copyright {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.footer__link {
+    color: white;
+    margin: 1rem 0;
+    transition: color 0.2s linear;
+}
+
+.footer__link:hover {
+    cursor: pointer;
     color: #F3BC5A;
+    transition: color 0.2s linear;
+}
+
+.footer__contact-us {
+    height: 100%;
 }

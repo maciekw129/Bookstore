@@ -1,0 +1,33 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+}
+
+.contact__title {
+    color: white;
+    font-weight: bold;
+}
+
+.contact__text {
+    padding: 1rem;
+    border: none;
+    padding: 1rem;
+    resize: vertical;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+    width: 300px;
+}
+
+.contact__email {
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    width: 85%;
+    border: none;
+}
+
+.contact__submit {
+    color: white;
+}

@@ -1,6 +1,6 @@
 <template>
     <div class="genres">
-        <h2 class="genres__title">Discover our categories</h2>
+        <h2 class="genres__title">{title}</h2>
         <div class="genres__items">
             <template for:each={genres} for:item="genre">
                 <button class="genres__item" key={genre} title={genre} onclick={handleClick}>{genre}</button>

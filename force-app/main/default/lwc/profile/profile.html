@@ -23,6 +23,7 @@
                             input-label="First name:"
                             input-placeholder="enter your first name here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                         <c-text-input
                             class="profile__input"
@@ -31,6 +32,7 @@
                             input-label="Last name:"
                             input-placeholder="enter your last name here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                         <c-text-input
                             class="profile__input"
@@ -39,6 +41,7 @@
                             input-label="Phone:"
                             input-placeholder="enter your phone here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                     </div>
                 </div>
@@ -52,6 +55,7 @@
                             input-label="City:"
                             input-placeholder="enter city here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                         <c-text-input
                             class="profile__input"
@@ -60,6 +64,7 @@
                             input-label="Postal code:"
                             input-placeholder="enter postal code here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                         <c-text-input
                             class="profile__input"
@@ -68,6 +73,7 @@
                             input-label="Street:"
                             input-placeholder="enter your street here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                         <c-text-input
                             class="profile__input"
@@ -76,11 +82,16 @@
                             input-label="Apartment:"
                             input-placeholder="enter your apartment here..."
                             onvaluesend={handleValueSend}
+                            read-only={readOnly}
                         ></c-text-input>
                     </div>
                 </div>
             </div>
-        <c-button onclick={handleClick} class="profile__button" text="Update informations"></c-button>
+        <div if:false={readOnly} class="profile__button-container">
+            <c-button onclick={handleUpdateClick} class="profile__button" text="Update informations"></c-button>
+            <c-button onclick={handleCancelClick} class="profile__button" text="Cancel"></c-button>
+        </div>
+        <c-button if:true={readOnly} onclick={handleEditClick} class="profile__button" text="Edit"></c-button>
         </template>
         <template if:true={isYourOrdersPageVisible}>
             <div class="profile__orders">

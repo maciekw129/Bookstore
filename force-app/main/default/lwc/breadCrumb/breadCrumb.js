@@ -2,11 +2,11 @@ import { LightningElement, api } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class BreadCrumb extends NavigationMixin(LightningElement) {
-    @api genres = [];
+    @api genres = '';
     @api bookTitle = '';
 
-    connectedCallback() {
-        this.genres = this.genres.split(';');
+    get splittedGenres() {
+        return this.genres ? this.genres = this.genres.split(';') : null;
     }
 
     handleOurBooksNavigate() {

@@ -6,4 +6,13 @@
         <target>lightningCommunity__Page</target>
         <target>lightningCommunity__Default</target>
     </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property type="String" name="bestsellersText" translatable="true"/>
+            <property type="String" name="newestBooksText" translatable="true"/>
+            <property type="String" name="categoriesText" translatable="true"/>
+            <property type="String" name="crimeText" translatable="true"/>
+            <property type="String" name="fantasyText" translatable="true"/>
+        </targetConfig>
+    </targetConfigs>
 </LightningComponentBundle>

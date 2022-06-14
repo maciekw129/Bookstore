@@ -3,10 +3,12 @@
     <input
         id="text-input"
         name={inputName}
-        class="input"
+        class={inputStyle}
         type={inputType}
         oninput={handleChange}
         value={inputValue}
         placeholder={inputPlaceholder}
+        maxlength="15"
+        readonly={readOnly}
     />
 </template>

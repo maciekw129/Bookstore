@@ -7,10 +7,11 @@
     width: 100%;
 }
 
-.login__wrapper {
+.login__container {
     box-shadow: 0px 0px 0.5rem lightgray;
     display: inline-block;
     padding: 2rem;
+    padding-bottom: 1rem;
     border-radius: 5px;
     transform: translateY(-64px);
 }
@@ -35,5 +36,17 @@
 }
 
 .login__button {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
+
+.login__error {
+    margin: 0.5rem;
+    font-size: 0.9rem;
+    color: red;
+}
+
+.login__error:after {
+    content: ' ';
+    font-size: 0;
+    white-space: pre;
+  }

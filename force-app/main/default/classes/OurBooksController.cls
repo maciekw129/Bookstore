@@ -2,7 +2,7 @@ public without sharing class OurBooksController {
 
     @AuraEnabled(cacheable=true)
     public static List<Book__c> getAllBooks() {
-        return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Prize__c, on_stock__c FROM Book__c];
+        return [SELECT cover__c, title__c, author__c, genres__c, ISBN__c, Prize__c, Discount_price__c, on_stock__c FROM Book__c];
     }
 
     @AuraEnabled(cacheable=true)
@@ -85,9 +85,14 @@ public without sharing class OurBooksController {
     @AuraEnabled
     public static Decimal getBookRate(Id bookId){
         List<comment__c> comments = [SELECT rate__c FROM Comment__c WHERE book__c =: bookId];
-        Decimal sumRate;
+        Decimal sumRate = 0;
+
         for(comment__c comment : comments) {
             sumRate += comment.rate__c;
+        }
+
+        if(sumRate == 0) {
+            return 0;
         }
         return sumRate / comments.size();
     }

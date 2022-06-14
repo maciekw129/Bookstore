@@ -13,8 +13,32 @@
     transition: border-color 0.2s linear;
 }
 
+.input:read-only {
+    border: none;
+}
+
 .input:focus {
     outline: none;
     border-color:#F3BC5A;
     transition: border-color 0.2s linear;
+}
+
+.input--wrong {
+    border-color: red;
+}
+
+.input--wrong:focus {
+    border-color: red;
+}
+
+.input--right {
+    border-color: green;
+}
+
+.input__error {
+    width: 100%;
+    text-align: left;
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 }

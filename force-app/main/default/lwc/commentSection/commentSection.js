@@ -8,13 +8,15 @@ export default class CommentSection extends LightningElement {
     @track comments = [];
     isGuest = isGuestUser;
     comment = '';
-    rating = null;
+    rating = 5;
 
     connectedCallback() {
+        console.log(this.book.Id);
         getBookComments({
             bookId: this.book.Id
         })
         .then(result => {
+            
             this.comments = result;
         })
         .catch(error => {

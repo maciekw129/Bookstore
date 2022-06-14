@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 import getUserDetails from '@salesforce/apex/profileController.getUserDetails';
 import updateUserDetails from '@salesforce/apex/profileController.updateUserDetails';
 
@@ -7,6 +7,7 @@ export default class Profile extends LightningElement {
     isYourOrdersPageVisible = false;
     userDetails = [];
     isToastVisible = false;
+    readOnly = true;
 
     connectedCallback() {
         getUserDetails()
@@ -42,7 +43,19 @@ export default class Profile extends LightningElement {
         }
     }
 
-    handleClick() {
+    handleEditClick() {
+        this.readOnly = !this.readOnly;
+    }
+
+    handleCancelClick() {
+        this.readOnly = true;
+        getUserDetails()
+        .then(result => {
+            this.userDetails = result[0];
+        })
+    }
+
+    handleUpdateClick() {
         const { FirstName, LastName, Phone, City__c, Postal_code__c, Street__c, Apartment__c } = this.userDetails;
         updateUserDetails({
             FirstName: FirstName,
@@ -55,6 +68,9 @@ export default class Profile extends LightningElement {
         })
         .then(() => {
             this.isToastVisible = true;
+        })
+        .catch(error => {
+            console.log(error)
         })
     }
 

@@ -1,0 +1,22 @@
+<template>
+    <form class="contact" onsubmit={handleQuestionSend}>
+        <h2 class="contact__title">Any questions?</h2>
+        <textarea
+            class="contact__text"
+            name="question"
+            placeholder="Enter your question here..."
+            oninput={handleTextChange}
+            required
+        ></textarea>
+        <input
+            class="contact__email"
+            type="text"
+            name="email"
+            value={email}
+            oninput={handleEmailChange}
+            placeholder="enter your e-mail here..."
+            required
+        />
+        <c-button type="submit" class="contact__submit" text="send"></c-button>
+    </form>
+</template>

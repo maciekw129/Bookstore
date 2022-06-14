@@ -4,29 +4,52 @@ import getSpecificBook from '@salesforce/apex/OurBooksController.getSpecificBook
 import AddItemToCart from '@salesforce/apex/CartController.AddItemToCart';
 import getSimilarBooks from '@salesforce/apex/OurBooksController.getSimilarBooks';
 import isGuestUser from '@salesforce/user/isGuest';
+import getBookRate from '@salesforce/apex/OurBooksController.getBookRate';
 
 export default class BookDetail extends LightningElement {
-    book = {};
-    @track counter = 1;
+    @track book = {};
+    counter = 1;
     isToastVisible = false;
     sameAuthorBooks = [];
     isGuest = isGuestUser;
+    rating;
+    @track visibility = {
+        isCommentsVisible: false,
+        isSimilarBooksVisible: false,
+        isBookDetailsVisible: false
+    }
 
     @wire(CurrentPageReference)
     pageReference( {state} ) {
         if(state.recordId) {
-            getSpecificBook({
-                bookId: state.recordId
-            })
-            .then((result) => {
-                this.book = result;
-                getSimilarBooks({
-                    bookId: this.book.Id
-                }) 
+            try {
+                getSpecificBook({
+                    bookId: state.recordId
+                })
                 .then(result => {
-                    this.sameAuthorBooks = result;
-                }) 
-            })
+                    console.log(result)
+                    this.book = result
+                    this.visibility.isBookDetailsVisible = true
+                    this.visibility.isCommentsVisible = true
+                })
+                getSimilarBooks({
+                    bookId: state.recordId
+                })
+                .then(result => {
+                    this.sameAuthorBooks = result
+                    this.visibility.isSimilarBooksVisible = true
+                })
+                getBookRate({
+                    bookId: state.recordId
+                })
+                .then(result => {
+                    console.log(result);
+                    this.rating = result
+                })
+
+            } catch(error) {
+                console.log(error)
+            }
         }
     }
 

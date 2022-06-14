@@ -1,4 +1,4 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, api } from 'lwc';
 import getBestSellers from '@salesforce/apex/OurBooksController.getBestSellers';
 import getNewest from '@salesforce/apex/OurBooksController.getNewest';
 import getBooksOneGenre from '@salesforce/apex/OurBooksController.getBooksOneGenre';
@@ -8,6 +8,11 @@ export default class Home extends LightningElement {
     @track newest = [];
     @track crimeBooks = [];
     @track fantasyBooks = [];
+    @api bestsellersText;
+    @api newestBooksText;
+    @api categoriesText;
+    @api crimeText;
+    @api fantasyText;
 
     connectedCallback() {
         getBestSellers()

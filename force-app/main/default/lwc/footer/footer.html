@@ -1,5 +1,10 @@
 <template>
     <footer class="footer">
+            <ul class="footer__navigation">
+                <li class="footer__link" data-value="Home" onclick={handleNavigate}><span class="footer__arrow">&gt;</span>Home</li>
+                <li class="footer__link" data-value="our_books__c" onclick={handleNavigate}><span class="footer__arrow">&gt;</span>Our books</li>
+            </ul>
+        <c-contact-us class="footer__contact-us"></c-contact-us>
         <p class="footer__copyright">Bookstore, all rights reserved &#174;</p>
     </footer>
 </template>

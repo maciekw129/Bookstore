@@ -3,6 +3,10 @@ import { LightningElement } from 'lwc';
 export default class Rating extends LightningElement {
     ratingArray = [1, 2, 3, 4, 5];
 
+    renderedCallback() {
+        this.color(5);
+    }
+
     handleClick(event) {
         this.color(event.target.value);
         const ratingEvent = new CustomEvent('rating', {

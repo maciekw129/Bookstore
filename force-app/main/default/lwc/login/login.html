@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <div class="login__wrapper">
+        <div class="login__container">
             <h2 class="login__title">Sign In</h2>
             <form class="login__form" onsubmit={handleSubmit}>
                     <c-text-input
@@ -19,6 +19,7 @@
                         onvaluesend={handleValueSend}
                     ></c-text-input>
                     <c-button class="login__button" text="Log In" button-type="submit"></c-button>
+                    <p class="login__error">{error}</p>
             </form>
         </div>
     </div>
